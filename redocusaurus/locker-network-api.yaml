@@ -1,0 +1,1839 @@
+openapi: 3.0.3
+info:
+  title: API платформы городской сети камер хранения
+  version: 1.0.0
+  description: >
+    OpenAPI-спецификация пользовательской части платформы городской сети камер
+    хранения с возможностью доставки вещей между локациями. Спецификация
+    покрывает сценарии поиска локаций, бронирования, продления хранения,
+    оформления перемещения, оплаты и поддержки.
+servers:
+  - url: https://api.city-storage.example.com
+    description: Базовый URL API
+tags:
+  - name: Locations
+    description: Поиск и отображение доступных локаций
+  - name: Bookings
+    description: Бронирование и управление активным хранением
+  - name: Transfers
+    description: Оформление и сопровождение перемещений между локациями
+  - name: Payments
+    description: Инициация и сопровождение оплаты
+  - name: Support
+    description: Создание и просмотр обращений в поддержку
+security:
+  - bearerAuth: []
+paths:
+  /api/v1/locations:
+    get:
+      tags:
+        - Locations
+      summary: Получение списка доступных вариантов хранения
+      description: >
+        Возвращает предварительно доступные варианты хранения для экрана выбора
+        локации. Используется список карточек доступных локаций с количеством
+        доступных ячеек и минимальной стоимостью.
+      parameters:
+        - $ref: '#/components/parameters/SearchParam'
+        - $ref: '#/components/parameters/CellSizeFilterParam'
+        - $ref: '#/components/parameters/SortParam'
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/SizeParam'
+      responses:
+        '200':
+          description: Список доступных вариантов хранения
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ со списком доступных вариантов хранения
+                required:
+                  - items
+                  - meta
+                properties:
+                  items:
+                    type: array
+                    description: Массив карточек доступных вариантов хранения
+                    items:
+                      type: object
+                      description: Карточка доступного варианта хранения
+                      required:
+                        - location
+                        - availableCellsCount
+                        - minPrice
+                      properties:
+                        location:
+                          $ref: '#/components/schemas/Location'
+                        availableCellsCount:
+                          type: integer
+                          description: Количество доступных ячеек в локации
+                        minPrice:
+                          $ref: '#/components/schemas/Money'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /api/v1/locations/map-points:
+    get:
+      tags:
+        - Locations
+      summary: Получение списка точек локаций для карты
+      description: >
+        Возвращает сокращённые данные по доступным локациям для отображения на
+        карте: координаты, число доступных ячеек и минимальную цену.
+      parameters:
+        - $ref: '#/components/parameters/SearchParam'
+        - $ref: '#/components/parameters/CellSizeFilterParam'
+      responses:
+        '200':
+          description: Список точек локаций для карты
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ со списком точек локаций
+                required:
+                  - items
+                properties:
+                  items:
+                    type: array
+                    description: Массив точек локаций
+                    items:
+                      type: object
+                      description: Точка локации для карты
+                      required:
+                        - locationId
+                        - locationName
+                        - coordinates
+                        - availableCellsCount
+                        - minPrice
+                      properties:
+                        locationId:
+                          type: string
+                          format: uuid
+                          description: Идентификатор локации
+                        locationName:
+                          type: string
+                          description: Название локации
+                        coordinates:
+                          type: object
+                          description: Координаты локации
+                          required:
+                            - lat
+                            - lon
+                          properties:
+                            lat:
+                              type: number
+                              format: double
+                              description: Широта
+                            lon:
+                              type: number
+                              format: double
+                              description: Долгота
+                        availableCellsCount:
+                          type: integer
+                          description: Количество доступных ячеек
+                        minPrice:
+                          $ref: '#/components/schemas/Money'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /api/v1/locations/{locationId}:
+    get:
+      tags:
+        - Locations
+      summary: Получение информации о выбранной локации
+      description: >
+        Возвращает данные о выбранной локации. Используется на экране оформления
+        бронирования и оформления перемещения.
+      parameters:
+        - $ref: '#/components/parameters/LocationIdParam'
+      responses:
+        '200':
+          description: Информация о локации
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ с данными выбранной локации
+                required:
+                  - location
+                properties:
+                  location:
+                    $ref: '#/components/schemas/Location'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/v1/locations/{locationId}/available-cell-sizes:
+    get:
+      tags:
+        - Locations
+      summary: Получение списка доступных размеров ячеек
+      description: >
+        Возвращает доступные размеры ячеек в выбранной локации и соответствующие
+        тарифы. Используется на экране оформления бронирования.
+      parameters:
+        - $ref: '#/components/parameters/LocationIdParam'
+      responses:
+        '200':
+          description: Список доступных размеров ячеек
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ со списком доступных размеров ячеек
+                required:
+                  - items
+                properties:
+                  items:
+                    type: array
+                    description: Массив доступных размеров ячеек
+                    items:
+                      type: object
+                      required:
+                        - size
+                        - tariffPerHour
+                      properties:
+                        size:
+                          type: string
+                          description: Размер ячейки
+                          enum:
+                            - SMALL
+                            - MEDIUM
+                            - LARGE
+                        tariffPerHour:
+                          $ref: '#/components/schemas/Money'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/v1/locations/{locationId}/cell-availability-check:
+    post:
+      tags:
+        - Locations
+      summary: Выполнение контрольной проверки доступности подходящей ячейки
+      description: >
+        Выполняет повторную контрольную проверку перед финальным подтверждением
+        бронирования или перемещения. Для бронирования передаются размер ячейки,
+        дата начала и срок хранения, для перемещения – bookingId.
+      parameters:
+        - $ref: '#/components/parameters/LocationIdParam'
+      requestBody:
+        required: true
+        description: Данные для контрольной проверки доступности подходящей ячейки
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - title: Проверка доступности для бронирования
+                  type: object
+                  required:
+                    - operationType
+                    - cellSize
+                    - startAt
+                    - durationHours
+                  properties:
+                    operationType:
+                      type: string
+                      description: Тип бизнес-операции
+                      enum:
+                        - BOOKING
+                    cellSize:
+                      type: string
+                      description: Размер ячейки для бронирования
+                      enum:
+                        - SMALL
+                        - MEDIUM
+                        - LARGE
+                    startAt:
+                      type: string
+                      format: date-time
+                      description: Дата и время начала хранения для бронирования
+                    durationHours:
+                      type: integer
+                      minimum: 1
+                      description: Срок хранения в часах для бронирования
+                - title: Проверка доступности для перемещения
+                  type: object
+                  required:
+                    - operationType
+                    - bookingId
+                  properties:
+                    operationType:
+                      type: string
+                      description: Тип бизнес-операции
+                      enum:
+                        - TRANSFER
+                    bookingId:
+                      type: string
+                      format: uuid
+                      description: Идентификатор бронирования для проверки перемещения
+      responses:
+        '200':
+          description: Результат контрольной проверки доступности
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Результат проверки доступности подходящей ячейки
+                required:
+                  - available
+                  - reasonCode
+                properties:
+                  available:
+                    type: boolean
+                    description: Признак доступности подходящей ячейки
+                  reasonCode:
+                    type: string
+                    description: Код причины результата проверки
+                    enum:
+                      - AVAILABLE
+                      - CELL_OCCUPIED
+                      - CELL_OFFLINE
+                      - TRANSFER_NOT_ALLOWED
+                      - INVALID_PERIOD
+                  message:
+                    type: string
+                    nullable: true
+                    description: Лаконичное текстовое пояснение результата
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /api/v1/bookings/calculate:
+    post:
+      tags:
+        - Bookings
+      summary: Расчёт стоимости бронирования
+      description: >
+        Возвращает итоговую стоимость бронирования по выбранной локации, размеру
+        ячейки, дате начала и сроку хранения. Используется на экране оформления
+        бронирования перед созданием заказа.
+      requestBody:
+        required: true
+        description: Параметры расчёта стоимости бронирования
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Тело запроса на расчёт стоимости бронирования
+              required:
+                - locationId
+                - cellSize
+                - startAt
+                - durationHours
+              properties:
+                locationId:
+                  type: string
+                  format: uuid
+                  description: Идентификатор выбранной локации
+                cellSize:
+                  type: string
+                  description: Выбранный размер ячейки
+                  enum:
+                    - SMALL
+                    - MEDIUM
+                    - LARGE
+                startAt:
+                  type: string
+                  format: date-time
+                  description: Дата и время начала хранения
+                durationHours:
+                  type: integer
+                  minimum: 1
+                  description: Срок хранения в часах
+      responses:
+        '200':
+          description: Результат расчёта стоимости бронирования
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ с данными расчёта стоимости бронирования
+                required:
+                  - location
+                  - cellSize
+                  - storagePeriod
+                  - totalPrice
+                properties:
+                  location:
+                    $ref: '#/components/schemas/Location'
+                  cellSize:
+                    type: string
+                    description: Выбранный размер ячейки
+                    enum:
+                      - SMALL
+                      - MEDIUM
+                      - LARGE
+                  storagePeriod:
+                    type: object
+                    description: Период хранения по расчёту
+                    required:
+                      - startAt
+                      - endAt
+                      - durationHours
+                    properties:
+                      startAt:
+                        type: string
+                        format: date-time
+                        description: Дата и время начала хранения
+                      endAt:
+                        type: string
+                        format: date-time
+                        description: Дата и время окончания хранения
+                      durationHours:
+                        type: integer
+                        description: Срок хранения в часах
+                  totalPrice:
+                    $ref: '#/components/schemas/Money'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /api/v1/bookings:
+    get:
+      tags:
+        - Bookings
+      summary: Получение списка хранений пользователя
+      description: |
+        Возвращает список хранений пользователя для экрана "Мои хранения".
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/SizeParam'
+      responses:
+        '200':
+          description: Список хранений пользователя
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ со списком хранений пользователя
+                required:
+                  - items
+                  - meta
+                properties:
+                  items:
+                    type: array
+                    description: Массив карточек хранений
+                    items:
+                      $ref: '#/components/schemas/Booking'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+    post:
+      tags:
+        - Bookings
+      summary: Создание бронирования
+      description: >
+        Создаёт бронирование с выбранной датой начала и сроком хранения после
+        успешного расчёта стоимости и контрольной проверки доступности ячейки.
+        Для защиты от повторной отправки рекомендуется использовать
+        идемпотентный ключ.
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKeyHeader'
+      requestBody:
+        required: true
+        description: Данные для создания бронирования
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Тело запроса на создание бронирования
+              required:
+                - locationId
+                - cellSize
+                - startAt
+                - durationHours
+              properties:
+                locationId:
+                  type: string
+                  format: uuid
+                  description: Идентификатор выбранной локации
+                cellSize:
+                  type: string
+                  description: Выбранный размер ячейки
+                  enum:
+                    - SMALL
+                    - MEDIUM
+                    - LARGE
+                startAt:
+                  type: string
+                  format: date-time
+                  description: Дата и время начала хранения
+                durationHours:
+                  type: integer
+                  minimum: 1
+                  description: Срок хранения в часах
+      responses:
+        '201':
+          description: Бронирование создано
+          content:
+            application/json:
+              schema:
+                type: object
+                description: >-
+                  Ответ с созданным бронированием и параметрами последующей
+                  оплаты
+                required:
+                  - booking
+                  - paymentRequired
+                  - paymentPurpose
+                  - paymentAmount
+                properties:
+                  booking:
+                    $ref: '#/components/schemas/Booking'
+                  paymentRequired:
+                    type: boolean
+                    description: >-
+                      Признак необходимости отдельного вызова метода создания
+                      платежа
+                  paymentPurpose:
+                    type: string
+                    description: Назначение последующего платежа
+                    enum:
+                      - BOOKING
+                  paymentAmount:
+                    $ref: '#/components/schemas/Money'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /api/v1/bookings/{bookingId}:
+    get:
+      tags:
+        - Bookings
+      summary: Получение деталей бронирования
+      description: >
+        Возвращает полную информацию о выбранном бронировании для экрана
+        активного хранения, включая текущую локацию, ячейку, срок хранения и
+        активное перемещение при наличии.
+      parameters:
+        - $ref: '#/components/parameters/BookingIdParam'
+      responses:
+        '200':
+          description: Детали бронирования
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ с деталями бронирования
+                required:
+                  - booking
+                properties:
+                  booking:
+                    $ref: '#/components/schemas/Booking'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      tags:
+        - Bookings
+      summary: Обновление статуса бронирования до завершённого
+      description: >
+        Завершает активное хранение через изменение статуса бронирования. Метод
+        используется только для перевода бронирования в статус FINISHED.
+        Повторный вызов должен обрабатываться через текущее состояние
+        бронирования.
+      parameters:
+        - $ref: '#/components/parameters/BookingIdParam'
+      requestBody:
+        required: true
+        description: Данные для завершения хранения
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Тело запроса на изменение статуса бронирования
+              required:
+                - status
+              properties:
+                status:
+                  type: string
+                  description: Новый статус бронирования
+                  enum:
+                    - FINISHED
+      responses:
+        '200':
+          description: Хранение завершено
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ с обновлённым состоянием бронирования
+                required:
+                  - booking
+                properties:
+                  booking:
+                    $ref: '#/components/schemas/Booking'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /api/v1/bookings/{bookingId}/status-history:
+    get:
+      tags:
+        - Bookings
+      summary: Получение истории статусов бронирования
+      description: >
+        Возвращает хронологию изменения статусов выбранного бронирования.
+        Используется на экране активного хранения.
+      parameters:
+        - $ref: '#/components/parameters/BookingIdParam'
+      responses:
+        '200':
+          description: История статусов бронирования
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ с историей статусов бронирования
+                required:
+                  - items
+                properties:
+                  items:
+                    type: array
+                    description: Массив записей истории статусов
+                    items:
+                      $ref: '#/components/schemas/BookingStatusHistoryItem'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/v1/bookings/{bookingId}/can-transfer:
+    get:
+      tags:
+        - Bookings
+      summary: Получение результата проверки возможности перемещения
+      description: >
+        Возвращает результат бизнес-проверки перед входом в сценарий
+        перемещения. Ключевое ограничение: до окончания хранения должно
+        оставаться не менее 2 часов.
+      parameters:
+        - $ref: '#/components/parameters/BookingIdParam'
+      responses:
+        '200':
+          description: Результат проверки возможности перемещения
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CanTransferResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/v1/bookings/{bookingId}/extend/calculate:
+    post:
+      tags:
+        - Bookings
+      summary: Расчёт стоимости продления хранения
+      description: >
+        Возвращает новую дату окончания хранения и итоговую сумму доплаты.
+        Используется внутри модального окна продления хранения.
+      parameters:
+        - $ref: '#/components/parameters/BookingIdParam'
+      requestBody:
+        required: true
+        description: Параметры расчёта продления хранения
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Тело запроса на расчёт продления хранения
+              required:
+                - additionalDurationHours
+              properties:
+                additionalDurationHours:
+                  type: integer
+                  minimum: 1
+                  description: Дополнительный срок хранения в часах
+      responses:
+        '200':
+          description: Результат расчёта стоимости продления
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ с результатом расчёта продления
+                required:
+                  - currentEndAt
+                  - newEndAt
+                  - totalPrice
+                properties:
+                  currentEndAt:
+                    type: string
+                    format: date-time
+                    description: Текущая дата и время окончания хранения
+                  newEndAt:
+                    type: string
+                    format: date-time
+                    description: Новая дата и время окончания хранения
+                  totalPrice:
+                    $ref: '#/components/schemas/Money'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/v1/bookings/{bookingId}/extend:
+    post:
+      tags:
+        - Bookings
+      summary: Инициация продления хранения
+      description: >
+        Инициирует сценарий продления активного хранения и возвращает параметры
+        планируемого продления для последующей оплаты. Фактическое применение
+        продления должно происходить после успешной оплаты. Для защиты от
+        повторной отправки рекомендуется использовать идемпотентный ключ.
+      parameters:
+        - $ref: '#/components/parameters/BookingIdParam'
+        - $ref: '#/components/parameters/IdempotencyKeyHeader'
+      requestBody:
+        required: true
+        description: Данные для продления хранения
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Тело запроса на продление хранения
+              required:
+                - additionalDurationHours
+              properties:
+                additionalDurationHours:
+                  type: integer
+                  minimum: 1
+                  description: Дополнительный срок хранения в часах
+      responses:
+        '200':
+          description: Сценарий продления инициализирован
+          content:
+            application/json:
+              schema:
+                type: object
+                description: >-
+                  Ответ с параметрами планируемого продления и последующей
+                  оплаты
+                required:
+                  - currentEndAt
+                  - newEndAt
+                  - paymentRequired
+                  - paymentPurpose
+                  - paymentAmount
+                properties:
+                  currentEndAt:
+                    type: string
+                    format: date-time
+                    description: Текущая дата и время окончания хранения
+                  newEndAt:
+                    type: string
+                    format: date-time
+                    description: >-
+                      Новая дата и время окончания хранения после успешной
+                      оплаты продления
+                  paymentRequired:
+                    type: boolean
+                    description: >-
+                      Признак необходимости отдельного вызова метода создания
+                      платежа
+                  paymentPurpose:
+                    type: string
+                    description: Назначение последующего платежа
+                    enum:
+                      - BOOKING_EXTENSION
+                  paymentAmount:
+                    $ref: '#/components/schemas/Money'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/v1/bookings/{bookingId}/transfer-destinations:
+    get:
+      tags:
+        - Transfers
+      summary: Получение списка допустимых вариантов перемещения
+      description: >
+        Возвращает только те целевые локации и ячейки, которые допустимы и
+        предварительно доступны для конкретного активного хранения.
+      parameters:
+        - $ref: '#/components/parameters/BookingIdParam'
+        - $ref: '#/components/parameters/SearchParam'
+        - $ref: '#/components/parameters/SortParam'
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/SizeParam'
+      responses:
+        '200':
+          description: Список допустимых вариантов перемещения
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ со списком допустимых вариантов перемещения
+                required:
+                  - items
+                  - meta
+                properties:
+                  items:
+                    type: array
+                    description: Массив допустимых целевых вариантов
+                    items:
+                      type: object
+                      description: Карточка допустимого варианта перемещения
+                      required:
+                        - location
+                        - availableCellsCount
+                        - minPrice
+                      properties:
+                        location:
+                          $ref: '#/components/schemas/Location'
+                        availableCellsCount:
+                          type: integer
+                          description: >-
+                            Количество доступных подходящих ячеек в целевой
+                            локации
+                        minPrice:
+                          $ref: '#/components/schemas/Money'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/v1/bookings/{bookingId}/transfer-destinations/map-points:
+    get:
+      tags:
+        - Transfers
+      summary: Получение списка точек допустимых целевых локаций для карты
+      description: >
+        Возвращает сокращённые данные по допустимым целевым локациям для
+        отображения на карте в сценарии оформления перемещения.
+      parameters:
+        - $ref: '#/components/parameters/BookingIdParam'
+        - $ref: '#/components/parameters/SearchParam'
+      responses:
+        '200':
+          description: Список точек допустимых целевых локаций
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ со списком точек допустимых целевых локаций
+                required:
+                  - items
+                properties:
+                  items:
+                    type: array
+                    description: Массив точек допустимых целевых локаций
+                    items:
+                      type: object
+                      description: Точка целевой локации для карты
+                      required:
+                        - locationId
+                        - locationName
+                        - coordinates
+                        - availableCellsCount
+                        - minPrice
+                      properties:
+                        locationId:
+                          type: string
+                          format: uuid
+                          description: Идентификатор локации
+                        locationName:
+                          type: string
+                          description: Название локации
+                        coordinates:
+                          type: object
+                          description: Координаты локации
+                          required:
+                            - lat
+                            - lon
+                          properties:
+                            lat:
+                              type: number
+                              format: double
+                              description: Широта
+                            lon:
+                              type: number
+                              format: double
+                              description: Долгота
+                        availableCellsCount:
+                          type: integer
+                          description: Количество доступных целевых ячеек
+                        minPrice:
+                          $ref: '#/components/schemas/Money'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/v1/bookings/{bookingId}/transfers/calculate:
+    post:
+      tags:
+        - Transfers
+      summary: Расчёт стоимости перемещения
+      description: >
+        Возвращает маршрут перемещения и итоговую стоимость услуги без изменения
+        срока хранения. Используется на экране оформления перемещения перед
+        созданием заказа.
+      parameters:
+        - $ref: '#/components/parameters/BookingIdParam'
+      requestBody:
+        required: true
+        description: Параметры расчёта перемещения
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Тело запроса на расчёт стоимости перемещения
+              required:
+                - targetLocationId
+              properties:
+                targetLocationId:
+                  type: string
+                  format: uuid
+                  description: Идентификатор выбранной целевой локации
+      responses:
+        '200':
+          description: Результат расчёта стоимости перемещения
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ с результатом расчёта перемещения
+                required:
+                  - route
+                  - storageEndAt
+                  - totalPrice
+                properties:
+                  route:
+                    type: object
+                    description: Маршрут перемещения
+                    required:
+                      - sourceLocation
+                      - sourceCell
+                      - targetLocation
+                    properties:
+                      sourceLocation:
+                        $ref: '#/components/schemas/Location'
+                      sourceCell:
+                        $ref: '#/components/schemas/Cell'
+                      targetLocation:
+                        $ref: '#/components/schemas/Location'
+                  storageEndAt:
+                    type: string
+                    format: date-time
+                    description: Дата и время окончания хранения после перемещения
+                  totalPrice:
+                    $ref: '#/components/schemas/Money'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/v1/bookings/{bookingId}/transfers:
+    post:
+      tags:
+        - Transfers
+      summary: Создание заказа на перемещение
+      description: >
+        Создаёт заказ на перемещение после повторной проверки can-transfer и
+        контрольной проверки доступности подходящей ячейки в выбранной целевой
+        локации. Для защиты от повторной отправки рекомендуется использовать
+        идемпотентный ключ.
+      parameters:
+        - $ref: '#/components/parameters/BookingIdParam'
+        - $ref: '#/components/parameters/IdempotencyKeyHeader'
+      requestBody:
+        required: true
+        description: Данные для создания заказа на перемещение
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Тело запроса на создание заказа на перемещение
+              required:
+                - targetLocationId
+              properties:
+                targetLocationId:
+                  type: string
+                  format: uuid
+                  description: Идентификатор выбранной целевой локации
+      responses:
+        '201':
+          description: Заказ на перемещение создан
+          content:
+            application/json:
+              schema:
+                type: object
+                description: >-
+                  Ответ с созданным заказом на перемещение и параметрами
+                  последующей оплаты
+                required:
+                  - transfer
+                  - paymentRequired
+                  - paymentPurpose
+                  - paymentAmount
+                properties:
+                  transfer:
+                    $ref: '#/components/schemas/Transfer'
+                  paymentRequired:
+                    type: boolean
+                    description: >-
+                      Признак необходимости отдельного вызова метода создания
+                      платежа
+                  paymentPurpose:
+                    type: string
+                    description: Назначение последующего платежа
+                    enum:
+                      - TRANSFER
+                  paymentAmount:
+                    $ref: '#/components/schemas/Money'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /api/v1/transfers/{transferId}:
+    get:
+      tags:
+        - Transfers
+      summary: Получение деталей заказа на перемещение
+      description: >
+        Возвращает полную информацию о заказе на перемещение: маршрут, статус,
+        стоимость и признак доступности отмены.
+      parameters:
+        - $ref: '#/components/parameters/TransferIdParam'
+      responses:
+        '200':
+          description: Детали заказа на перемещение
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ с деталями заказа на перемещение
+                required:
+                  - transfer
+                properties:
+                  transfer:
+                    $ref: '#/components/schemas/Transfer'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      tags:
+        - Transfers
+      summary: Обновление статуса заказа на перемещение до отменённого
+      description: >
+        Отменяет заказ на перемещение через изменение его статуса. Метод
+        используется только для перевода заказа в статус CANCELED. Повторный
+        вызов должен обрабатываться через текущее состояние заказа.
+      parameters:
+        - $ref: '#/components/parameters/TransferIdParam'
+      requestBody:
+        required: true
+        description: Данные для отмены заказа на перемещение
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Тело запроса на изменение статуса заказа на перемещение
+              required:
+                - status
+              properties:
+                status:
+                  type: string
+                  description: Новый статус заказа на перемещение
+                  enum:
+                    - CANCELED
+      responses:
+        '200':
+          description: Заказ на перемещение отменён
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ с обновлённым состоянием заказа на перемещение
+                required:
+                  - transfer
+                properties:
+                  transfer:
+                    $ref: '#/components/schemas/Transfer'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /api/v1/transfers/{transferId}/status-history:
+    get:
+      tags:
+        - Transfers
+      summary: Получение истории статусов заказа на перемещение
+      description: >
+        Возвращает хронологию изменения статусов заказа на перемещение.
+        Используется на экране отслеживания перемещения.
+      parameters:
+        - $ref: '#/components/parameters/TransferIdParam'
+      responses:
+        '200':
+          description: История статусов заказа на перемещение
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ с историей статусов заказа на перемещение
+                required:
+                  - items
+                properties:
+                  items:
+                    type: array
+                    description: Массив записей истории статусов
+                    items:
+                      $ref: '#/components/schemas/TransferStatusHistoryItem'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/v1/payments:
+    post:
+      tags:
+        - Payments
+      summary: Создание платежа
+      description: >
+        Создаёт платёж для бронирования, продления хранения или перемещения. Для
+        защиты от повторной отправки рекомендуется использовать идемпотентный
+        ключ.
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKeyHeader'
+      requestBody:
+        required: true
+        description: Данные для создания платежа
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Тело запроса на создание платежа
+              required:
+                - purpose
+                - objectId
+                - method
+              properties:
+                purpose:
+                  type: string
+                  description: Назначение платежа
+                  enum:
+                    - BOOKING
+                    - BOOKING_EXTENSION
+                    - TRANSFER
+                objectId:
+                  type: string
+                  format: uuid
+                  description: >-
+                    Идентификатор связанного бронирования или заказа на
+                    перемещение, в зависимости от назначения платежа
+                method:
+                  type: string
+                  description: Способ оплаты
+                  enum:
+                    - BANK_CARD
+                    - SBP
+                returnUrl:
+                  type: string
+                  format: uri
+                  nullable: true
+                  description: URL возврата после оплаты
+      responses:
+        '201':
+          description: Платёж создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /api/v1/support-requests:
+    get:
+      tags:
+        - Support
+      summary: Получение списка обращений в поддержку
+      description: |
+        Возвращает список обращений пользователя.
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/SizeParam'
+      responses:
+        '200':
+          description: Список обращений в поддержку
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ со списком обращений в поддержку
+                required:
+                  - items
+                  - meta
+                properties:
+                  items:
+                    type: array
+                    description: Массив обращений в поддержку
+                    items:
+                      $ref: '#/components/schemas/SupportRequest'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+    post:
+      tags:
+        - Support
+      summary: Создание обращения в поддержку
+      description: >
+        Создаёт новое обращение в поддержку. Для защиты от повторной отправки
+        формы рекомендуется использовать идемпотентный ключ.
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKeyHeader'
+      requestBody:
+        required: true
+        description: Данные для создания обращения в поддержку
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Тело запроса на создание обращения в поддержку
+              required:
+                - subject
+                - message
+              properties:
+                subject:
+                  type: string
+                  maxLength: 120
+                  description: Тема обращения
+                message:
+                  type: string
+                  maxLength: 2000
+                  description: Текст обращения
+                relatedObject:
+                  type: object
+                  nullable: true
+                  description: >-
+                    Связанный объект, если обращение создано из контекста
+                    бронирования или перемещения
+                  required:
+                    - type
+                    - id
+                  properties:
+                    type:
+                      type: string
+                      description: Тип связанного объекта
+                      enum:
+                        - BOOKING
+                        - TRANSFER
+                    id:
+                      type: string
+                      format: uuid
+                      description: Идентификатор связанного объекта
+      responses:
+        '201':
+          description: Обращение в поддержку создано
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Ответ с созданным обращением в поддержку
+                required:
+                  - supportRequest
+                properties:
+                  supportRequest:
+                    $ref: '#/components/schemas/SupportRequest'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    SearchParam:
+      name: search
+      in: query
+      required: false
+      description: Строка поиска по названию локации или адресу
+      schema:
+        type: string
+        maxLength: 100
+    CellSizeFilterParam:
+      name: cellSize
+      in: query
+      required: false
+      description: Фильтр по размеру ячейки
+      schema:
+        type: string
+        enum:
+          - SMALL
+          - MEDIUM
+          - LARGE
+    SortParam:
+      name: sort
+      in: query
+      required: false
+      description: Параметр сортировки результатов
+      schema:
+        type: string
+        enum:
+          - PRICE_ASC
+          - PRICE_DESC
+    PageParam:
+      name: page
+      in: query
+      required: false
+      description: Номер страницы, начиная с 1
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    SizeParam:
+      name: size
+      in: query
+      required: false
+      description: Размер страницы
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 20
+    LocationIdParam:
+      name: locationId
+      in: path
+      required: true
+      description: Идентификатор локации
+      schema:
+        type: string
+        format: uuid
+    BookingIdParam:
+      name: bookingId
+      in: path
+      required: true
+      description: Идентификатор бронирования
+      schema:
+        type: string
+        format: uuid
+    TransferIdParam:
+      name: transferId
+      in: path
+      required: true
+      description: Идентификатор заказа на перемещение
+      schema:
+        type: string
+        format: uuid
+    IdempotencyKeyHeader:
+      name: Idempotency-Key
+      in: header
+      required: false
+      description: >
+        Идемпотентный ключ для защиты от повторной отправки одинакового
+        POST-запроса. Особенно рекомендуется для создания бронирования, платежа,
+        продления, перемещения и обращения.
+      schema:
+        type: string
+        maxLength: 255
+  responses:
+    BadRequest:
+      description: Некорректный запрос
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Объект не найден
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Conflict:
+      description: Конфликт состояния или нарушение бизнес-правила
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    PaginationMeta:
+      type: object
+      description: Унифицированные метаданные пагинации для списочных ответов
+      required:
+        - page
+        - size
+        - totalItems
+      properties:
+        page:
+          type: integer
+          description: Текущая страница
+          example: 1
+        size:
+          type: integer
+          description: Размер страницы
+          example: 20
+        totalItems:
+          type: integer
+          description: Общее количество элементов
+          example: 53
+    Money:
+      type: object
+      description: Денежная сумма в выбранной валюте
+      required:
+        - amount
+        - currency
+      properties:
+        amount:
+          type: number
+          format: double
+          description: Числовое значение суммы
+          example: 450
+        currency:
+          type: string
+          description: Код или обозначение валюты
+          example: RUB
+    Location:
+      type: object
+      description: Локация сети камер хранения
+      required:
+        - id
+        - name
+        - address
+        - coordinates
+        - workingHours
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Идентификатор локации
+        name:
+          type: string
+          description: Название локации
+          example: Камера хранения ТЦ "Гудок"
+        address:
+          type: object
+          description: Адрес локации
+          required:
+            - city
+            - street
+            - building
+          properties:
+            city:
+              type: string
+              description: Город
+              example: Самара
+            street:
+              type: string
+              description: Улица
+              example: Красноармейская
+            building:
+              type: string
+              description: Номер дома или корпуса
+              example: 131
+            comment:
+              type: string
+              nullable: true
+              description: Дополнительное описание адреса
+              example: ТЦ "Гудок", 1 этаж
+        coordinates:
+          type: object
+          description: Координаты локации
+          required:
+            - lat
+            - lon
+          properties:
+            lat:
+              type: number
+              format: double
+              description: Широта
+            lon:
+              type: number
+              format: double
+              description: Долгота
+        workingHours:
+          type: object
+          description: Режим работы локации
+          required:
+            - opensAt
+            - closesAt
+          properties:
+            opensAt:
+              type: string
+              description: Время открытия
+              example: '08:00'
+            closesAt:
+              type: string
+              description: Время закрытия
+              example: '22:00'
+    Cell:
+      type: object
+      description: Ячейка хранения внутри локации
+      required:
+        - id
+        - number
+        - size
+        - tariffPerHour
+        - features
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Идентификатор ячейки
+        number:
+          type: string
+          description: Отображаемый номер ячейки
+          example: A-105
+        size:
+          type: string
+          description: Размер ячейки
+          enum:
+            - SMALL
+            - MEDIUM
+            - LARGE
+        tariffPerHour:
+          $ref: '#/components/schemas/Money'
+        features:
+          type: array
+          description: Набор характеристик ячейки
+          items:
+            type: string
+            enum:
+              - VIDEO_MONITORING
+              - TEMPERATURE_CONTROL
+              - POWER_OUTLET
+    Booking:
+      type: object
+      description: Бронирование и текущее состояние хранения пользователя
+      required:
+        - id
+        - status
+        - location
+        - cell
+        - storagePeriod
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Идентификатор бронирования
+        status:
+          type: string
+          description: Текущий статус бронирования
+          enum:
+            - CREATED
+            - CONFIRMED
+            - ACTIVE_STORAGE
+            - FINISHED
+            - CANCELED
+            - EXPIRED
+        location:
+          $ref: '#/components/schemas/Location'
+        cell:
+          $ref: '#/components/schemas/Cell'
+        storagePeriod:
+          type: object
+          description: Период хранения
+          required:
+            - startAt
+            - endAt
+            - durationHours
+          properties:
+            startAt:
+              type: string
+              format: date-time
+              description: Дата и время начала хранения
+            endAt:
+              type: string
+              format: date-time
+              description: Дата и время окончания хранения
+            durationHours:
+              type: integer
+              description: Срок хранения в часах
+        createdAt:
+          type: string
+          format: date-time
+          description: Дата и время создания бронирования
+        updatedAt:
+          type: string
+          format: date-time
+          description: Дата и время последнего обновления
+        activeTransfer:
+          type: object
+          nullable: true
+          description: Активный заказ на перемещение, если он существует
+          required:
+            - id
+            - status
+          properties:
+            id:
+              type: string
+              format: uuid
+              description: Идентификатор активного перемещения
+            status:
+              type: string
+              description: Текущий статус активного перемещения
+              enum:
+                - CREATED
+                - WAITING_FOR_PAYMENT
+                - WAITING_FOR_COURIER_ASSIGNMENT
+                - COURIER_ASSIGNED
+                - ITEM_PICKED_UP
+                - IN_TRANSIT
+                - PLACED_IN_TARGET_CELL
+                - COMPLETED
+                - CANCELED
+                - INCIDENT
+    Transfer:
+      type: object
+      description: Заказ на перемещение вещи между локациями
+      required:
+        - id
+        - bookingId
+        - status
+        - paymentStatus
+        - createdAt
+        - route
+        - totalPrice
+        - cancelAllowed
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Идентификатор заказа на перемещение
+        bookingId:
+          type: string
+          format: uuid
+          description: Идентификатор связанного бронирования
+        status:
+          type: string
+          description: Текущий статус заказа на перемещение
+          enum:
+            - CREATED
+            - WAITING_FOR_PAYMENT
+            - WAITING_FOR_COURIER_ASSIGNMENT
+            - COURIER_ASSIGNED
+            - ITEM_PICKED_UP
+            - IN_TRANSIT
+            - PLACED_IN_TARGET_CELL
+            - COMPLETED
+            - CANCELED
+            - INCIDENT
+        paymentStatus:
+          type: string
+          description: Текущий статус оплаты заказа на перемещение
+          enum:
+            - NOT_REQUIRED
+            - PENDING
+            - SUCCEEDED
+            - FAILED
+        createdAt:
+          type: string
+          format: date-time
+          description: Дата и время создания заказа на перемещение
+        route:
+          type: object
+          description: Маршрут перемещения
+          required:
+            - sourceLocation
+            - sourceCell
+            - targetLocation
+            - targetCell
+          properties:
+            sourceLocation:
+              $ref: '#/components/schemas/Location'
+            sourceCell:
+              $ref: '#/components/schemas/Cell'
+            targetLocation:
+              $ref: '#/components/schemas/Location'
+            targetCell:
+              $ref: '#/components/schemas/Cell'
+        totalPrice:
+          $ref: '#/components/schemas/Money'
+        cancelAllowed:
+          type: boolean
+          description: Признак доступности обычной отмены
+    Payment:
+      type: object
+      description: Платёж, связанный с бронированием, продлением или перемещением
+      required:
+        - paymentId
+        - purpose
+        - objectId
+        - amount
+        - method
+        - status
+      properties:
+        paymentId:
+          type: string
+          format: uuid
+          description: Идентификатор платежа
+        purpose:
+          type: string
+          description: Назначение платежа
+          enum:
+            - BOOKING
+            - BOOKING_EXTENSION
+            - TRANSFER
+        objectId:
+          type: string
+          format: uuid
+          description: Идентификатор связанного объекта
+        amount:
+          $ref: '#/components/schemas/Money'
+        method:
+          type: string
+          description: Способ оплаты
+          enum:
+            - BANK_CARD
+            - SBP
+        status:
+          type: string
+          description: Текущий статус платежа
+          enum:
+            - PENDING
+            - SUCCEEDED
+            - FAILED
+        paymentUrl:
+          type: string
+          format: uri
+          nullable: true
+          description: Ссылка для перехода на страницу оплаты
+    SupportRequest:
+      type: object
+      description: Обращение пользователя в поддержку
+      required:
+        - id
+        - subject
+        - message
+        - status
+        - createdAt
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Идентификатор обращения
+        subject:
+          type: string
+          description: Тема обращения
+          example: Не открывается ячейка
+        message:
+          type: string
+          description: Текст обращения
+          example: После оплаты ячейка не открылась на локации
+        status:
+          type: string
+          description: Текущий статус обращения
+          enum:
+            - NEW
+            - IN_PROGRESS
+            - RESOLVED
+            - CLOSED
+        createdAt:
+          type: string
+          format: date-time
+          description: Дата и время создания обращения
+        relatedObject:
+          type: object
+          nullable: true
+          description: Связанный объект, если обращение создано из контекста системы
+          required:
+            - type
+            - id
+          properties:
+            type:
+              type: string
+              description: Тип связанного объекта
+              enum:
+                - BOOKING
+                - TRANSFER
+            id:
+              type: string
+              format: uuid
+              description: Идентификатор связанного объекта
+    BookingStatusHistoryItem:
+      type: object
+      description: Запись истории изменения статуса бронирования
+      required:
+        - status
+        - changedAt
+      properties:
+        status:
+          type: string
+          description: Значение статуса бронирования в момент записи
+          enum:
+            - CREATED
+            - CONFIRMED
+            - ACTIVE_STORAGE
+            - FINISHED
+            - CANCELED
+            - EXPIRED
+          example: ACTIVE_STORAGE
+        changedAt:
+          type: string
+          format: date-time
+          description: Дата и время изменения статуса
+        comment:
+          type: string
+          nullable: true
+          description: Дополнительный комментарий к смене статуса
+    TransferStatusHistoryItem:
+      type: object
+      description: Запись истории изменения статуса заказа на перемещение
+      required:
+        - status
+        - changedAt
+      properties:
+        status:
+          type: string
+          description: Значение статуса заказа на перемещение в момент записи
+          enum:
+            - CREATED
+            - WAITING_FOR_PAYMENT
+            - WAITING_FOR_COURIER_ASSIGNMENT
+            - COURIER_ASSIGNED
+            - ITEM_PICKED_UP
+            - IN_TRANSIT
+            - PLACED_IN_TARGET_CELL
+            - COMPLETED
+            - CANCELED
+            - INCIDENT
+          example: IN_TRANSIT
+        changedAt:
+          type: string
+          format: date-time
+          description: Дата и время изменения статуса
+        comment:
+          type: string
+          nullable: true
+          description: Дополнительный комментарий к смене статуса
+    CanTransferResponse:
+      type: object
+      description: Результат проверки возможности оформления перемещения
+      required:
+        - canTransfer
+        - reasonCode
+        - minRemainingHoursRequired
+      properties:
+        canTransfer:
+          type: boolean
+          description: Признак возможности оформить перемещение
+        reasonCode:
+          type: string
+          description: Код причины результата проверки
+          enum:
+            - ALLOWED
+            - NOT_ACTIVE_STORAGE
+            - ACTIVE_TRANSFER_ALREADY_EXISTS
+            - TOO_LITTLE_TIME_LEFT
+            - BOOKING_FINISHED
+            - BOOKING_CANCELED
+        minRemainingHoursRequired:
+          type: integer
+          description: Минимально допустимый остаток времени хранения в часах
+          example: 2
+        remainingHours:
+          type: integer
+          nullable: true
+          description: Фактический оставшийся срок хранения в часах
+        message:
+          type: string
+          nullable: true
+          description: Лаконичное текстовое пояснение результата
+    ErrorResponse:
+      type: object
+      description: Унифицированный формат ошибки API
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          description: Машиночитаемый код ошибки
+          example: BUSINESS_RULE_VIOLATION
+        message:
+          type: string
+          description: Человекочитаемое сообщение об ошибке
+          example: >-
+            Перемещение недоступно: до окончания хранения осталось меньше 2
+            часов
+        details:
+          type: array
+          description: Дополнительные детали ошибки
+          items:
+            type: string

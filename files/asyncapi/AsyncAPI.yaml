@@ -1,0 +1,137 @@
+asyncapi: 3.1.0
+
+info:
+  title: Transfer Status Updates API
+  version: 1.0.0
+  description: >
+    Асинхронное взаимодействие между веб-клиентом и backend
+    для получения обновлений статуса заказа на перемещение.
+
+defaultContentType: application/json
+
+servers:
+  production:
+    host: api.example.com
+    pathname: /ws
+    protocol: wss
+    description: WebSocket endpoint для подписки на события по перемещениям
+
+channels:
+  transfers:
+    address: /transfers
+    messages:
+      subscribeTransfer:
+        $ref: '#/components/messages/SubscribeTransferUpdates'
+      transferStatusChanged:
+        $ref: '#/components/messages/TransferStatusChanged'
+
+operations:
+  subscribeToTransfer:
+    action: receive
+    channel:
+      $ref: '#/channels/transfers'
+    summary: Backend принимает от клиента запрос на подписку по конкретному перемещению
+    messages:
+      - $ref: '#/channels/transfers/messages/subscribeTransfer'
+
+  sendTransferStatusChanged:
+    action: send
+    channel:
+      $ref: '#/channels/transfers'
+    summary: Backend отправляет клиенту событие об изменении статуса перемещения
+    messages:
+      - $ref: '#/channels/transfers/messages/transferStatusChanged'
+
+components:
+  messages:
+    SubscribeTransferUpdates:
+      name: SubscribeTransferUpdates
+      title: Подписка на обновления по перемещению
+      payload:
+        type: object
+        additionalProperties: false
+        required:
+          - action
+          - transferId
+        properties:
+          action:
+            type: string
+            enum:
+              - subscribe
+            description: Тип клиентской команды
+          transferId:
+            type: string
+            format: uuid
+            description: Идентификатор заказа на перемещение
+
+    TransferStatusChanged:
+      name: TransferStatusChanged
+      title: Событие изменения статуса перемещения
+      payload:
+        type: object
+        additionalProperties: false
+        required:
+          - eventType
+          - transferId
+          - previousStatus
+          - newStatus
+          - changedAt
+        properties:
+          eventType:
+            type: string
+            enum:
+              - TRANSFER_STATUS_CHANGED
+            description: Тип события
+          transferId:
+            type: string
+            format: uuid
+            description: Идентификатор заказа на перемещение
+          bookingId:
+            type: string
+            format: uuid
+            description: Идентификатор связанного бронирования
+          previousStatus:
+            $ref: '#/components/schemas/TransferStatus'
+          newStatus:
+            $ref: '#/components/schemas/TransferStatus'
+          paymentStatus:
+            $ref: '#/components/schemas/PaymentStatus'
+          changedAt:
+            type: string
+            format: date-time
+            description: Дата и время изменения статуса
+          actorType:
+            $ref: '#/components/schemas/ActorType'
+          comment:
+            type: string
+            description: Дополнительный комментарий, например причина инцидента
+
+  schemas:
+    TransferStatus:
+      type: string
+      enum:
+        - CREATED
+        - WAITING_FOR_PAYMENT
+        - WAITING_FOR_COURIER_ASSIGNMENT
+        - COURIER_ASSIGNED
+        - ITEM_PICKED_UP
+        - IN_TRANSIT
+        - PLACED_IN_TARGET_CELL
+        - COMPLETED
+        - CANCELED
+        - INCIDENT
+
+    PaymentStatus:
+      type: string
+      enum:
+        - NOT_REQUIRED
+        - PENDING
+        - SUCCEEDED
+        - FAILED
+
+    ActorType:
+      type: string
+      enum:
+        - SYSTEM
+        - COURIER
+        - SUPPORT

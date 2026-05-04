@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ru" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-api/api-by-wireframes" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">API по макетам | Платформа городской сети камер хранения с возможностью доставки вещей между локациями</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://olejjjka.github.io/locker-network-docs/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://olejjjka.github.io/locker-network-docs/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://olejjjka.github.io/locker-network-docs/docs/api/api-by-wireframes"><meta data-rh="true" property="og:locale" content="ru"><meta data-rh="true" name="docusaurus_locale" content="ru"><meta data-rh="true" name="docsearch:language" content="ru"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="API по макетам | Платформа городской сети камер хранения с возможностью доставки вещей между локациями"><meta data-rh="true" name="description" content="Проектирование REST API пользовательской части платформы на основе макетов экранов"><meta data-rh="true" property="og:description" content="Проектирование REST API пользовательской части платформы на основе макетов экранов"><link data-rh="true" rel="icon" href="/locker-network-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://olejjjka.github.io/locker-network-docs/docs/api/api-by-wireframes"><link data-rh="true" rel="alternate" href="https://olejjjka.github.io/locker-network-docs/docs/api/api-by-wireframes" hreflang="ru"><link data-rh="true" rel="alternate" href="https://olejjjka.github.io/locker-network-docs/docs/api/api-by-wireframes" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"API по макетам","item":"https://olejjjka.github.io/locker-network-docs/docs/api/api-by-wireframes"}]}</script><script src="https://cdn.jsdelivr.net/npm/docusaurus-plugin-drawio/viewer.min.js"></script><link rel="stylesheet" href="/locker-network-docs/assets/css/styles.95f5aee6.css">
+<script src="/locker-network-docs/assets/js/runtime~main.936fc9c7.js" defer="defer"></script>
+<script src="/locker-network-docs/assets/js/main.6f367d90.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/locker-network-docs/img/logo.svg"><div role="region" aria-label="Перейти к основному содержимому"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Перейти к основному содержимому</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Переключить навигационную панель" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/locker-network-docs/"><div class="navbar__logo"><img src="/locker-network-docs/img/logo.svg" alt="Логотип документации" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/locker-network-docs/img/logo.svg" alt="Логотип документации" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Камеры хранения</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/locker-network-docs/docs/intro">Документация</a><a class="navbar__item navbar__link" href="/locker-network-docs/api/openapi">OpenAPI</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Olejjjka/locker-network-docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Переключение между темным и светлым режимом (сейчас используется system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Прокрутка к началу" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/locker-network-docs/docs/intro"><span title="Платформа камер хранения" class="linkLabel_WmDU">Платформа камер хранения</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/locker-network-docs/docs/product/concept-and-boundaries"><span title="Описание проекта" class="categoryLinkLabel_W154">Описание проекта</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/locker-network-docs/docs/requirements"><span title="Требования" class="categoryLinkLabel_W154">Требования</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/locker-network-docs/docs/processes/bpmn"><span title="Бизнес-процессы" class="categoryLinkLabel_W154">Бизнес-процессы</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/locker-network-docs/docs/uml/uml-diagrams"><span title="UML-диаграммы" class="categoryLinkLabel_W154">UML-диаграммы</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/locker-network-docs/docs/api/api-by-wireframes"><span title="API" class="categoryLinkLabel_W154">API</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/locker-network-docs/docs/api/api-by-wireframes"><span title="API по макетам" class="linkLabel_WmDU">API по макетам</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/locker-network-docs/docs/async/async-interaction"><span title="Асинхронное взаимодействие" class="categoryLinkLabel_W154">Асинхронное взаимодействие</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/locker-network-docs/docs/data-storage/storage-technologies"><span title="Хранение данных" class="categoryLinkLabel_W154">Хранение данных</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/locker-network-docs/docs/data-model/erd"><span title="Модель данных" class="categoryLinkLabel_W154">Модель данных</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/locker-network-docs/docs/platformization"><span title="Платформизация" class="categoryLinkLabel_W154">Платформизация</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/locker-network-docs/docs/templates/missing-artifacts"><span title="Шаблоны артефактов" class="categoryLinkLabel_W154">Шаблоны артефактов</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/locker-network-docs/docs/style-guide"><span title="Style Guide" class="categoryLinkLabel_W154">Style Guide</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Навигационная цепочка текущей страницы"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Главная страница" class="breadcrumbs__link" href="/locker-network-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">API</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">API по макетам</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">Содержание этой страницы</button></div><div class="theme-doc-markdown markdown"><header><h1>Проектирование API по макетам</h1></header>
+<p>В рамках артефакта была подготовлена схема экранов пользовательской части платформы и определены API-источники данных, необходимые для реализации каждого экрана.</p>
+<p>Макеты экранов охватывают пользовательскую часть системы: выбор локации, оформление бронирования, управление активным хранением, продление, оформление перемещения, просмотр заказа на перемещение и обращение в поддержку.</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>к сведению</div><div class="admonitionContent_BuS1"><p>Диаграмма Use Case не дублируется на этой странице, так как она уже вынесена в отдельный раздел <a class="" href="/locker-network-docs/docs/uml/uml-diagrams">UML-диаграммы</a>. В данном артефакте она используется только как основание для выбора пользовательских сценариев, по которым проектировались экраны и API.</p></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="макеты-экранов-системы">Макеты экранов системы<a href="#макеты-экранов-системы" class="hash-link" aria-label="Прямая ссылка на Макеты экранов системы" title="Прямая ссылка на Макеты экранов системы" translate="no">​</a></h2>
+<p>Ниже приведена общая схема экранов пользовательской части системы с привязкой экранов к маршрутам и API-endpoints.</p>
+<!-- -->loading...<!-- -->
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>примечание</div><div class="admonitionContent_BuS1"><p>Повторение одного и того же запроса в пределах одного экрана используется только для наглядной привязки источников данных к соответствующим блокам интерфейса. Фактически один ответ API может использоваться сразу в нескольких элементах экрана.</p></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="описание-экранов">Описание экранов<a href="#описание-экранов" class="hash-link" aria-label="Прямая ссылка на Описание экранов" title="Прямая ссылка на Описание экранов" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-экран-выбора-локации-для-хранения">1. Экран выбора локации для хранения<a href="#1-экран-выбора-локации-для-хранения" class="hash-link" aria-label="Прямая ссылка на 1. Экран выбора локации для хранения" title="Прямая ссылка на 1. Экран выбора локации для хранения" translate="no">​</a></h3>
+<p><strong>Маршрут:</strong> <code>/locations</code></p>
+<p><strong>Описание:</strong></p>
+<p>Экран выбора локации для хранения является основной точкой входа в пользовательский сценарий бронирования. На нём пользователь может найти доступные локации, ознакомиться с их расположением на карте и выбрать подходящую локацию для дальнейшего оформления бронирования.</p>
+<p><strong>Элементы:</strong></p>
+<ul>
+<li class="">поле поиска локации – позволяет искать локации по названию или адресу;</li>
+<li class="">кнопка «Найти» – запускает поиск по введённому запросу;</li>
+<li class="">блок фильтров / сортировки – позволяет уточнить список отображаемых вариантов;</li>
+<li class="">список доступных вариантов хранения – содержит карточки локаций с краткой информацией;</li>
+<li class="">карта локаций – показывает расположение доступных локаций;</li>
+<li class="">нижнее меню навигации – содержит переходы к основным разделам приложения.</li>
+</ul>
+<p><strong>Взаимодействия:</strong></p>
+<ul>
+<li class="">нажатие на кнопку «Найти» обновляет список доступных вариантов хранения и карту локаций;</li>
+<li class="">нажатие на кнопку «Выбрать» в карточке выбранного варианта переводит пользователя к экрану оформления бронирования;</li>
+<li class="">нажатие на пункт «Мои хранения» в нижнем меню переводит пользователя на экран списка хранений;</li>
+<li class="">нажатие на пункт «Поддержка» в нижнем меню переводит пользователя на экран поддержки.</li>
+</ul>
+<p><strong>Источники данных:</strong></p>
+<ul>
+<li class=""><code>GET /api/v1/locations?search=...</code> – поиск локаций по запросу;</li>
+<li class=""><code>GET /api/v1/locations/map-points?search=...</code> – получение точек локаций на карте по поисковому запросу;</li>
+<li class=""><code>GET /api/v1/locations</code> – получение списка доступных вариантов хранения;</li>
+<li class=""><code>GET /api/v1/locations/map-points</code> – получение точек локаций для отображения на карте.</li>
+</ul>
+<p>Для отображения карты локаций используется интеграция с внешним картографическим сервисом.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-экран-оформления-бронирования">2. Экран оформления бронирования<a href="#2-экран-оформления-бронирования" class="hash-link" aria-label="Прямая ссылка на 2. Экран оформления бронирования" title="Прямая ссылка на 2. Экран оформления бронирования" translate="no">​</a></h3>
+<p><strong>Маршрут:</strong> <code>/bookings/new?locationId={locationId}</code></p>
+<p><strong>Описание:</strong></p>
+<p>Экран оформления бронирования предназначен для подтверждения выбранной локации, выбора размера ячейки, задания параметров бронирования, расчёта стоимости и последующего оформления и оплаты услуги хранения.</p>
+<p><strong>Элементы:</strong></p>
+<ul>
+<li class="">блок информации о локации – отображает название локации, адрес и режим работы;</li>
+<li class="">блок выбора размера ячейки – позволяет выбрать подходящий размер ячейки из доступных вариантов;</li>
+<li class="">блок параметров бронирования – позволяет выбрать дату начала и длительность хранения;</li>
+<li class="">кнопка «Рассчитать стоимость» – инициирует расчёт стоимости хранения;</li>
+<li class="">блок результата расчёта – отображает период хранения и стоимость;</li>
+<li class="">кнопка «Подтвердить и оплатить» – завершает оформление бронирования;</li>
+<li class="">кнопка «Вернуться к выбору» – возвращает пользователя на предыдущий экран;</li>
+<li class="">нижнее меню навигации.</li>
+</ul>
+<p><strong>Взаимодействия:</strong></p>
+<ul>
+<li class="">пользователь выбирает размер ячейки, дату начала и длительность хранения;</li>
+<li class="">нажатие на кнопку «Рассчитать стоимость» отображает стоимость хранения;</li>
+<li class="">нажатие на кнопку «Подтвердить и оплатить» инициирует проверку доступности ячейки, создание бронирования и оплату;</li>
+<li class="">нажатие на кнопку «Вернуться к выбору» возвращает пользователя на экран выбора локации для хранения.</li>
+</ul>
+<p><strong>Источники данных:</strong></p>
+<ul>
+<li class=""><code>GET /api/v1/locations/{locationId}</code> – получение данных о выбранной локации;</li>
+<li class=""><code>GET /api/v1/locations/{locationId}/available-cell-sizes</code> – получение доступных размеров ячеек и соответствующих тарифов;</li>
+<li class=""><code>POST /api/v1/bookings/calculate</code> – расчёт стоимости бронирования;</li>
+<li class=""><code>POST /api/v1/locations/{locationId}/cell-availability-check</code> – контрольная проверка доступности подходящей ячейки перед подтверждением;</li>
+<li class=""><code>POST /api/v1/bookings</code> – создание нового бронирования;</li>
+<li class=""><code>POST /api/v1/payments</code> – оплата бронирования.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-экран-мои-хранения">3. Экран «Мои хранения»<a href="#3-экран-мои-хранения" class="hash-link" aria-label="Прямая ссылка на 3. Экран «Мои хранения»" title="Прямая ссылка на 3. Экран «Мои хранения»" translate="no">​</a></h3>
+<p><strong>Маршрут:</strong> <code>/bookings</code></p>
+<p><strong>Описание:</strong></p>
+<p>Экран «Мои хранения» предназначен для просмотра всех бронирований пользователя. Он служит удобной точкой доступа к конкретным хранениям и позволяет пользователю открыть нужное хранение для дальнейшей работы с ним.</p>
+<p><strong>Элементы:</strong></p>
+<ul>
+<li class="">список хранений – отображает все бронирования пользователя в хронологическом порядке;</li>
+<li class="">карточка хранения – содержит краткую информацию о бронировании;</li>
+<li class="">кнопка «Открыть» – открывает выбранное хранение;</li>
+<li class="">нижнее меню навигации.</li>
+</ul>
+<p><strong>Взаимодействия:</strong></p>
+<ul>
+<li class="">пользователь просматривает список своих хранений;</li>
+<li class="">нажатие на кнопку «Открыть» переводит пользователя на экран активного хранения;</li>
+<li class="">нажатие на пункт «Главная» в нижнем меню переводит пользователя на экран выбора локации для хранения.</li>
+</ul>
+<p><strong>Источники данных:</strong></p>
+<ul>
+<li class=""><code>GET /api/v1/bookings</code> – получение списка всех хранений пользователя.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-экран-активного-хранения">4. Экран активного хранения<a href="#4-экран-активного-хранения" class="hash-link" aria-label="Прямая ссылка на 4. Экран активного хранения" title="Прямая ссылка на 4. Экран активного хранения" translate="no">​</a></h3>
+<p><strong>Маршрут:</strong> <code>/bookings/{bookingId}</code></p>
+<p><strong>Описание:</strong></p>
+<p>Экран активного хранения является основным экраном управления текущим хранением. На нём пользователь может просматривать информацию о бронировании, историю статусов, продлевать хранение, оформлять перемещение, завершать хранение, переходить к заказу на перемещение и обращаться в поддержку.</p>
+<p><strong>Элементы:</strong></p>
+<ul>
+<li class="">блок информации о бронировании – содержит основные данные о хранении;</li>
+<li class="">блок активного перемещения – отображается при наличии активного заказа на перемещение;</li>
+<li class="">блок истории статусов – показывает основные изменения статуса хранения;</li>
+<li class="">кнопка «Продлить хранение»;</li>
+<li class="">кнопка «Оформить перемещение»;</li>
+<li class="">кнопка «Завершить хранение»;</li>
+<li class="">кнопка «Поддержка»;</li>
+<li class="">нижнее меню навигации.</li>
+</ul>
+<p><strong>Взаимодействия:</strong></p>
+<ul>
+<li class="">нажатие на кнопку «Продлить хранение» открывает модальное окно продления хранения;</li>
+<li class="">нажатие на кнопку «Оформить перемещение» переводит пользователя к экрану выбора целевой локации для перемещения;</li>
+<li class="">нажатие на кнопку «Завершить хранение» инициирует завершение текущего хранения;</li>
+<li class="">нажатие на кнопку «Поддержка» открывает экран поддержки в контексте данного бронирования;</li>
+<li class="">при наличии активного перемещения пользователь может нажать «Открыть заказ» и перейти к экрану заказа на перемещение.</li>
+</ul>
+<p><strong>Источники данных:</strong></p>
+<ul>
+<li class=""><code>GET /api/v1/bookings/{bookingId}</code> – получение информации о бронировании и связанных с ним данных;</li>
+<li class=""><code>GET /api/v1/bookings/{bookingId}/status-history</code> – получение истории статусов хранения;</li>
+<li class=""><code>GET /api/v1/bookings/{bookingId}/can-transfer</code> – проверка возможности оформления перемещения;</li>
+<li class=""><code>PATCH /api/v1/bookings/{bookingId}</code> – завершение хранения.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="41-модальное-окно-продления-хранения">4.1. Модальное окно продления хранения<a href="#41-модальное-окно-продления-хранения" class="hash-link" aria-label="Прямая ссылка на 4.1. Модальное окно продления хранения" title="Прямая ссылка на 4.1. Модальное окно продления хранения" translate="no">​</a></h3>
+<p><strong>Контекст:</strong> открывается из экрана активного хранения <code>/bookings/{bookingId}</code></p>
+<p><strong>Описание:</strong></p>
+<p>Модальное окно продления хранения позволяет пользователю выбрать дополнительный срок хранения, рассчитать доплату и подтвердить продление текущего хранения без перехода на отдельный экран.</p>
+<p><strong>Элементы:</strong></p>
+<ul>
+<li class="">блок параметров продления – отображает текущую дату окончания хранения и позволяет выбрать дополнительный срок;</li>
+<li class="">кнопка «Рассчитать доплату»;</li>
+<li class="">блок результата расчёта – отображает новый период хранения и сумму доплаты;</li>
+<li class="">кнопка «Подтвердить и оплатить продление»;</li>
+<li class="">кнопка «Отмена».</li>
+</ul>
+<p><strong>Взаимодействия:</strong></p>
+<ul>
+<li class="">пользователь выбирает дополнительный срок хранения;</li>
+<li class="">нажатие на кнопку «Рассчитать доплату» показывает сумму доплаты и обновлённый период хранения;</li>
+<li class="">нажатие на кнопку «Подтвердить и оплатить продление» инициирует сценарий продления хранения и оплату доплаты;</li>
+<li class="">фактическое применение продления происходит после успешной оплаты;</li>
+<li class="">нажатие на кнопку «Отмена» закрывает модальное окно.</li>
+</ul>
+<p><strong>Источники данных:</strong></p>
+<ul>
+<li class=""><code>POST /api/v1/bookings/{bookingId}/extend/calculate</code> – расчёт доплаты за продление;</li>
+<li class=""><code>POST /api/v1/bookings/{bookingId}/extend</code> – инициация продления хранения;</li>
+<li class=""><code>POST /api/v1/payments</code> – оплата продления.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-экран-выбора-целевой-локации-для-перемещения">5. Экран выбора целевой локации для перемещения<a href="#5-экран-выбора-целевой-локации-для-перемещения" class="hash-link" aria-label="Прямая ссылка на 5. Экран выбора целевой локации для перемещения" title="Прямая ссылка на 5. Экран выбора целевой локации для перемещения" translate="no">​</a></h3>
+<p><strong>Маршрут:</strong> <code>/bookings/{bookingId}/transfers</code></p>
+<p><strong>Описание:</strong></p>
+<p>Экран выбора целевой локации для перемещения используется для выбора нового места хранения вещи в рамках уже существующего активного хранения. На нём пользователь ищет допустимые целевые локации, знакомится с их расположением на карте и выбирает подходящую локацию для дальнейшего оформления перемещения.</p>
+<p><strong>Элементы:</strong></p>
+<ul>
+<li class="">блок исходного хранения – отображает исходную локацию, исходную ячейку и текущий статус хранения;</li>
+<li class="">поле поиска целевой локации;</li>
+<li class="">кнопка «Найти»;</li>
+<li class="">блок фильтров / сортировки;</li>
+<li class="">список доступных вариантов перемещения;</li>
+<li class="">карта целевых локаций;</li>
+<li class="">нижнее меню навигации.</li>
+</ul>
+<p><strong>Взаимодействия:</strong></p>
+<ul>
+<li class="">пользователь вводит запрос в поле поиска и нажимает «Найти», после чего обновляются список доступных вариантов и карта;</li>
+<li class="">нажатие на кнопку «Выбрать» в карточке выбранной целевой локации переводит пользователя к экрану оформления перемещения.</li>
+</ul>
+<p><strong>Источники данных:</strong></p>
+<ul>
+<li class=""><code>GET /api/v1/bookings/{bookingId}</code> – получение информации об исходном хранении;</li>
+<li class=""><code>GET /api/v1/bookings/{bookingId}/transfer-destinations?search=...</code> – поиск допустимых целевых вариантов перемещения;</li>
+<li class=""><code>GET /api/v1/bookings/{bookingId}/transfer-destinations/map-points?search=...</code> – получение точек целевых локаций на карте с учётом поиска;</li>
+<li class=""><code>GET /api/v1/bookings/{bookingId}/transfer-destinations</code> – получение списка допустимых вариантов перемещения;</li>
+<li class=""><code>GET /api/v1/bookings/{bookingId}/transfer-destinations/map-points</code> – получение точек целевых локаций для карты.</li>
+</ul>
+<p>Для отображения карты целевых локаций используется интеграция с внешним картографическим сервисом.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-экран-оформления-перемещения">6. Экран оформления перемещения<a href="#6-экран-оформления-перемещения" class="hash-link" aria-label="Прямая ссылка на 6. Экран оформления перемещения" title="Прямая ссылка на 6. Экран оформления перемещения" translate="no">​</a></h3>
+<p><strong>Маршрут:</strong> <code>/bookings/{bookingId}/transfers/new?locationId={locationId}</code></p>
+<p><strong>Описание:</strong></p>
+<p>Экран оформления перемещения предназначен для подтверждения выбранной целевой локации, отображения условий хранения после перемещения, расчёта стоимости и оформления заказа на перемещение с последующей оплатой.</p>
+<p><strong>Элементы:</strong></p>
+<ul>
+<li class="">блок информации о целевой локации;</li>
+<li class="">блок условий хранения после перемещения;</li>
+<li class="">блок результата расчёта;</li>
+<li class="">кнопка «Подтвердить и оплатить»;</li>
+<li class="">кнопка «Вернуться к выбору варианта»;</li>
+<li class="">нижнее меню навигации.</li>
+</ul>
+<p><strong>Взаимодействия:</strong></p>
+<ul>
+<li class="">при открытии экрана система автоматически определяет требуемый размер ячейки на основе активного хранения и рассчитывает стоимость перемещения;</li>
+<li class="">нажатие на кнопку «Подтвердить и оплатить» инициирует повторную проверку допустимости перемещения, повторную проверку доступности подходящей ячейки в выбранной целевой локации, создание заказа на перемещение и оплату;</li>
+<li class="">нажатие на кнопку «Вернуться к выбору» возвращает пользователя к экрану выбора целевой локации для перемещения.</li>
+</ul>
+<p><strong>Источники данных:</strong></p>
+<ul>
+<li class=""><code>GET /api/v1/locations/{locationId}</code> – получение информации о выбранной целевой локации;</li>
+<li class=""><code>GET /api/v1/bookings/{bookingId}</code> – получение информации о текущем хранении и параметрах, необходимых для подбора подходящей ячейки после перемещения;</li>
+<li class=""><code>POST /api/v1/bookings/{bookingId}/transfers/calculate</code> – расчёт стоимости перемещения;</li>
+<li class=""><code>GET /api/v1/bookings/{bookingId}/can-transfer</code> – повторная проверка допустимости перемещения;</li>
+<li class=""><code>POST /api/v1/locations/{locationId}/cell-availability-check</code> – повторная проверка доступности подходящей ячейки в выбранной целевой локации;</li>
+<li class=""><code>POST /api/v1/bookings/{bookingId}/transfers</code> – создание заказа на перемещение;</li>
+<li class=""><code>POST /api/v1/payments</code> – оплата перемещения.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-экран-заказа-на-перемещение">7. Экран заказа на перемещение<a href="#7-экран-заказа-на-перемещение" class="hash-link" aria-label="Прямая ссылка на 7. Экран заказа на перемещение" title="Прямая ссылка на 7. Экран заказа на перемещение" translate="no">​</a></h3>
+<p><strong>Маршрут:</strong> <code>/transfers/{transferId}</code></p>
+<p><strong>Описание:</strong></p>
+<p>Экран заказа на перемещение предназначен для сопровождения уже созданного заказа на перемещение. На нём пользователь может просматривать текущий статус заказа, маршрут перемещения, историю статусов, отменить заказ в допустимых статусах и обратиться в поддержку.</p>
+<p><strong>Элементы:</strong></p>
+<ul>
+<li class="">блок информации о заказе;</li>
+<li class="">блок маршрута перемещения;</li>
+<li class="">блок истории статусов;</li>
+<li class="">кнопка «Отменить заказ»;</li>
+<li class="">кнопка «Поддержка»;</li>
+<li class="">нижнее меню навигации.</li>
+</ul>
+<p><strong>Взаимодействия:</strong></p>
+<ul>
+<li class="">пользователь просматривает текущий статус заказа и историю его выполнения;</li>
+<li class="">нажатие на кнопку «Отменить заказ» инициирует отмену заказа на перемещение, если текущий статус это допускает;</li>
+<li class="">нажатие на кнопку «Поддержка» открывает экран поддержки в контексте данного заказа на перемещение.</li>
+</ul>
+<p><strong>Источники данных:</strong></p>
+<ul>
+<li class=""><code>GET /api/v1/transfers/{transferId}</code> – получение информации о заказе на перемещение;</li>
+<li class=""><code>GET /api/v1/transfers/{transferId}/status-history</code> – получение истории статусов заказа;</li>
+<li class=""><code>PATCH /api/v1/transfers/{transferId}</code> – отмена заказа на перемещение.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-экран-поддержки">8. Экран поддержки<a href="#8-экран-поддержки" class="hash-link" aria-label="Прямая ссылка на 8. Экран поддержки" title="Прямая ссылка на 8. Экран поддержки" translate="no">​</a></h3>
+<p><strong>Маршруты:</strong></p>
+<ul>
+<li class=""><code>/support</code></li>
+<li class=""><code>/support?bookingId={bookingId}</code></li>
+<li class=""><code>/support?transferId={transferId}</code></li>
+</ul>
+<p><strong>Описание:</strong></p>
+<p>Экран поддержки служит единым центром работы с обращениями пользователя. На нём можно создать новое обращение, просмотреть список ранее созданных обращений и при необходимости сформировать обращение в контексте конкретного бронирования или заказа на перемещение.</p>
+<p><strong>Элементы:</strong></p>
+<ul>
+<li class="">блок связанного объекта, если есть;</li>
+<li class="">форма создания обращения;</li>
+<li class="">кнопка «Отправить обращение»;</li>
+<li class="">список обращений;</li>
+<li class="">нижнее меню навигации.</li>
+</ul>
+<p><strong>Взаимодействия:</strong></p>
+<ul>
+<li class="">пользователь заполняет форму и отправляет новое обращение;</li>
+<li class="">при открытии экрана из контекста хранения или перемещения отображается информация о связанном объекте;</li>
+<li class="">пользователь может просматривать список своих предыдущих обращений.</li>
+</ul>
+<p><strong>Источники данных:</strong></p>
+<ul>
+<li class=""><code>GET /api/v1/bookings/{bookingId}</code> – получение данных связанного бронирования при открытии экрана поддержки из контекста хранения;</li>
+<li class=""><code>GET /api/v1/transfers/{transferId}</code> – получение данных связанного заказа на перемещение при открытии экрана поддержки из контекста перемещения;</li>
+<li class=""><code>GET /api/v1/support-requests</code> – получение списка обращений пользователя;</li>
+<li class=""><code>POST /api/v1/support-requests</code> – создание нового обращения.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="спецификация-openapi">Спецификация OpenAPI<a href="#спецификация-openapi" class="hash-link" aria-label="Прямая ссылка на Спецификация OpenAPI" title="Прямая ссылка на Спецификация OpenAPI" translate="no">​</a></h2>
+<p>В рамках задания была разработана спецификация OpenAPI для пользовательской части платформы городской сети камер хранения.</p>
+<p>Спецификация построена на основе макетов экранов и описывает источники данных, необходимые frontend-части для реализации пользовательских сценариев. В спецификации определены основные endpoints, параметры запросов, модели запросов и ответов.</p>
+<p>Интерактивная версия спецификации доступна в разделе <a class="" href="/locker-network-docs/api/openapi">OpenAPI</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="основные-группы-endpoints">Основные группы endpoints<a href="#основные-группы-endpoints" class="hash-link" aria-label="Прямая ссылка на Основные группы endpoints" title="Прямая ссылка на Основные группы endpoints" translate="no">​</a></h2>
+<table><thead><tr><th>Группа</th><th>Назначение</th></tr></thead><tbody><tr><td><code>Locations</code></td><td>Поиск и отображение доступных локаций</td></tr><tr><td><code>Bookings</code></td><td>Бронирование, активное хранение и продление</td></tr><tr><td><code>Transfers</code></td><td>Оформление и сопровождение перемещений</td></tr><tr><td><code>Payments</code></td><td>Инициация и сопровождение оплаты</td></tr><tr><td><code>Support</code></td><td>Создание и просмотр обращений в поддержку</td></tr></tbody></table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/Olejjjka/locker-network-docs/edit/main/my-website/docs/api/api-by-wireframes.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Отредактировать эту страницу</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Страница документа"><a class="pagination-nav__link pagination-nav__link--prev" href="/locker-network-docs/docs/uml/uml-diagrams"><div class="pagination-nav__sublabel">Предыдущая страница</div><div class="pagination-nav__label">UML-диаграммы</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/locker-network-docs/docs/async/async-interaction"><div class="pagination-nav__sublabel">Следующая страница</div><div class="pagination-nav__label">Асинхронное взаимодействие</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#макеты-экранов-системы" class="table-of-contents__link toc-highlight">Макеты экранов системы</a></li><li><a href="#описание-экранов" class="table-of-contents__link toc-highlight">Описание экранов</a><ul><li><a href="#1-экран-выбора-локации-для-хранения" class="table-of-contents__link toc-highlight">1. Экран выбора локации для хранения</a></li><li><a href="#2-экран-оформления-бронирования" class="table-of-contents__link toc-highlight">2. Экран оформления бронирования</a></li><li><a href="#3-экран-мои-хранения" class="table-of-contents__link toc-highlight">3. Экран «Мои хранения»</a></li><li><a href="#4-экран-активного-хранения" class="table-of-contents__link toc-highlight">4. Экран активного хранения</a></li><li><a href="#41-модальное-окно-продления-хранения" class="table-of-contents__link toc-highlight">4.1. Модальное окно продления хранения</a></li><li><a href="#5-экран-выбора-целевой-локации-для-перемещения" class="table-of-contents__link toc-highlight">5. Экран выбора целевой локации для перемещения</a></li><li><a href="#6-экран-оформления-перемещения" class="table-of-contents__link toc-highlight">6. Экран оформления перемещения</a></li><li><a href="#7-экран-заказа-на-перемещение" class="table-of-contents__link toc-highlight">7. Экран заказа на перемещение</a></li><li><a href="#8-экран-поддержки" class="table-of-contents__link toc-highlight">8. Экран поддержки</a></li></ul></li><li><a href="#спецификация-openapi" class="table-of-contents__link toc-highlight">Спецификация OpenAPI</a></li><li><a href="#основные-группы-endpoints" class="table-of-contents__link toc-highlight">Основные группы endpoints</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Разделы</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/locker-network-docs/docs/intro">Введение</a></li><li class="footer__item"><a class="footer__link-item" href="/locker-network-docs/api/openapi">OpenAPI</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Репозиторий</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Olejjjka/locker-network-docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Olejjjka. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
