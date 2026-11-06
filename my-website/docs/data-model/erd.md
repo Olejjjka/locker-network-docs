@@ -6,8 +6,11 @@ description: Концептуальная, логическая и физиче�
 
 import Drawio from '@theme/Drawio'
 import conceptualModel from '!!raw-loader!./conceptual-model.drawio';
+import conceptualModelSource from '!!file-loader!./conceptual-model.drawio';
 import logicalModel from '!!raw-loader!./logical-model.drawio';
+import logicalModelSource from '!!file-loader!./logical-model.drawio';
 import physicalModel from '!!raw-loader!./physical-model.drawio';
+import physicalModelSource from '!!file-loader!./physical-model.drawio';
 
 # Проектирование ERD
 
@@ -24,6 +27,8 @@ import physicalModel from '!!raw-loader!./physical-model.drawio';
 На концептуальном уровне выделены основные сущности предметной области и связи между ними. На этом уровне модель не содержит атрибутов, типов данных и технических ограничений.
 
 <Drawio content={conceptualModel} editable={false} />
+
+[Открыть изображение схемы](/img/erd/conceptual-model.png) · <a href={conceptualModelSource} download>Скачать исходник draw.io</a>
 
 ### Основные сущности концептуального уровня
 
@@ -52,6 +57,8 @@ import physicalModel from '!!raw-loader!./physical-model.drawio';
 На логическом уровне были добавлены атрибуты, первичные и внешние ключи, обязательность полей, справочники статусов и таблицы истории изменений.
 
 <Drawio content={logicalModel} editable={false} />
+
+[Открыть изображение схемы](/img/erd/logical-model.png) · <a href={logicalModelSource} download>Скачать исходник draw.io</a>
 
 ### Основные решения логической модели
 
@@ -112,6 +119,8 @@ Payment → Transfer → Booking → User
 На физическом уровне логическая модель была уточнена под PostgreSQL. Были выбраны конкретные типы данных, ограничения и физические решения.
 
 <Drawio content={physicalModel} editable={false} />
+
+[Открыть изображение схемы](/img/erd/physical-model.png) · <a href={physicalModelSource} download>Скачать исходник draw.io</a>
 
 ### Основные физические решения
 
@@ -198,3 +207,9 @@ ERD-модель согласована с остальными артефакт
 - с выбранной физической СУБД PostgreSQL.
 
 Модель сохраняет нормализованную структуру и не добавляет лишние связи, которые могли бы привести к дублированию данных.
+
+## Связанные материалы
+
+- [Технологии хранения](../data-storage/storage-technologies.md).
+- [REST API](../api/api-by-wireframes.md).
+- [События](../async/async-interaction.md).

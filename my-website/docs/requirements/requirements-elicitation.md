@@ -221,3 +221,9 @@ description: Классификация стейкхолдеров, RACI, воп
 Ссылка на Event Storming в Unidraw:
 
 [https://unidraw.io/app/board/400b3f82537d35d65085](https://unidraw.io/app/board/400b3f82537d35d65085)
+
+## Связанные материалы
+
+- [Концепция и границы](../product/concept-and-boundaries.md).
+- [Требования](./requirements.md).
+- [Процесс перемещения](../processes/bpmn.md).

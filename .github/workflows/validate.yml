@@ -1,0 +1,27 @@
+name: Validate documentation
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: my-website
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: my-website/package-lock.json
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+      - run: npm run check:links
