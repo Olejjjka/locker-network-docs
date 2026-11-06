@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Экраны v2 (Good)" id="sRbYfeNas68S0cwoYZX5">
+    <mxGraphModel dx="2289" dy="1320" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-0" />
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-1" parent="Tpl5S-HseXtg4csTzpkj-0" />
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-2" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="520" width="280" x="80" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-3" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1. Экран выбора локации для хранения&lt;div&gt;/locations&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="280" x="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-4" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Поле поиска локации" vertex="1">
+          <mxGeometry height="30" width="260" x="90" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-5" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;GET /api/v1/locations?search=...&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;GET /api/v1/locations/map-points?search=...&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="260" x="90" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-6" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Фильтры / сортировка&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="120" x="90" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-7" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Список доступных вариантов хранения:&lt;div&gt;1. Название локации&lt;/div&gt;&lt;div&gt;2. Адрес&lt;/div&gt;&lt;div&gt;3. Доступно N ячеек&lt;/div&gt;&lt;div&gt;4. От X рублей&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="260" x="90" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-8" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;GET /api/v1/locations&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="260" x="90" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-9" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Найти" vertex="1">
+          <mxGeometry height="20" width="40" x="295" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-10" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;" value="Карта локаций" vertex="1">
+          <mxGeometry height="210" width="250" x="90" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-11" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;GET /api/v1/locations/map-points&lt;/span&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;*Интеграция с внешним картографическим сервисом*&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="250" x="90" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-12" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Нижнее меню навигации&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;1. Главная 2. Мои хранения 3. Поддержка&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="250" x="90" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-13" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Выбрать" vertex="1">
+          <mxGeometry height="20" width="55" x="280" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-14" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="520" width="280" x="480" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-15" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="2. Экран оформления бронирования&lt;div&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;/bookings/new?locationId={locationId}&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="280" x="480" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-16" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Информация о локации&lt;div&gt;1. Название локации&lt;/div&gt;&lt;div&gt;2. Адрес&lt;/div&gt;&lt;div&gt;3. Режим работы&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="260" x="490" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-17" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="GET /api/v1/locations/{locationId}" vertex="1">
+          <mxGeometry height="25" width="260" x="490" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-18" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Выбор размера ячейки&lt;div&gt;(&amp;nbsp; ) Размер S - тариф&lt;/div&gt;&lt;div&gt;(&amp;nbsp; ) Размер M - тариф&lt;/div&gt;&lt;div&gt;(&amp;nbsp; ) Размер L - тариф&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="260" x="490" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-19" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;GET /api/v1/locations/{locationId}/available-cell-sizes&lt;/font&gt;" vertex="1">
+          <mxGeometry height="25" width="260" x="490" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-20" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Параметры бронирования&lt;div&gt;1. Дата начала [выбор]&lt;/div&gt;&lt;div&gt;2. Длительность хранения [выбор]&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="260" x="490" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-21" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="POST /api/v1/bookings/calculate" vertex="1">
+          <mxGeometry height="25" width="260" x="490" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-22" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Рассчитать стоимость" vertex="1">
+          <mxGeometry height="20" width="130" x="500" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-23" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Результат расчета&lt;div&gt;1. Период хранения&lt;br&gt;&lt;div&gt;2. Стоимость хранения&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="260" x="490" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-24" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 9px; line-height: 100%;&quot;&gt;POST /api/v1/locations/{locationId}/cell-availability-check&lt;br&gt;POST /api/v1/bookings&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 9px; line-height: 100%;&quot;&gt;POST /api/v1/payments&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="250" x="500" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-25" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Подтвердить и оплатить" vertex="1">
+          <mxGeometry height="20" width="260" x="490" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-26" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Вернуться к выбору" vertex="1">
+          <mxGeometry height="20" width="260" x="490" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-27" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Нижнее меню навигации&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;1. Главная 2. Мои хранения 3. Поддержка&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="260" x="490" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-28" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.346;entryDx=0;entryDy=0;entryPerimeter=0;" target="Tpl5S-HseXtg4csTzpkj-14" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="335" y="219.52" as="sourcePoint" />
+            <mxPoint x="460" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-29" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-28" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;&lt;font style=&quot;&quot;&gt;/bookings/new?&lt;/font&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;&lt;font style=&quot;&quot;&gt;locationId={locationId}&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.1196" y="-1" as="geometry">
+            <mxPoint x="-2" y="-25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-30" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-26" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1.002;entryY=0.846;entryDx=0;entryDy=0;entryPerimeter=0;" target="Tpl5S-HseXtg4csTzpkj-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="430" y="370" as="sourcePoint" />
+            <mxPoint x="480" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-31" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-30" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;/locations&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.1004" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-32" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="520" width="280" x="480" y="676.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-33" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="4. Экран активного хранения&lt;div&gt;/bookings/{bookingId}&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="280" x="480" y="636.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-34" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Информация о бронировании&lt;div&gt;1. ID бронирования&lt;/div&gt;&lt;div&gt;2. Статус&lt;/div&gt;&lt;div&gt;3. Локация&lt;/div&gt;&lt;div&gt;4. Ячейка&lt;/div&gt;&lt;div&gt;5. Дата начала&lt;/div&gt;&lt;div&gt;6. Текущая дата окончания&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="260" x="490" y="696.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-35" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;GET /api/v1/bookings/{bookingId}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="260" x="490" y="676.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-36" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="История статусов:&lt;div&gt;1. Создано&lt;/div&gt;&lt;div&gt;2. Подтверждено&lt;/div&gt;&lt;div&gt;3. Активное хранение ...&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="260" x="490" y="911.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-37" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;GET /api/v1/bookings/{bookingId}/status-history&lt;/font&gt;" vertex="1">
+          <mxGeometry height="25" width="260" x="490" y="886.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-38" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Продлить хранение" vertex="1">
+          <mxGeometry height="20" width="260" x="490" y="986.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-39" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Оформить перемещение" vertex="1">
+          <mxGeometry height="20" width="260" x="490" y="1026.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-40" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;GET /api/v1/bookings/{bookingId}/can-transfer&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="260" x="490" y="1006.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-41" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Завершить хранение" vertex="1">
+          <mxGeometry height="20" width="260" x="490" y="1066.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-42" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;PATCH /api/v1/bookings/{bookingId}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="260" x="490" y="1046.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-43" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Поддержка" vertex="1">
+          <mxGeometry height="20" width="260" x="490" y="1106.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-44" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;/support?bookingId={bookingId}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="260" x="490" y="1086.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-45" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Нижнее меню навигации&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;1. Главная 2. Мои хранения 3. Поддержка&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="260" x="490" y="1136.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-46" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="280" width="280" x="880" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-47" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="4.1 Модальное окно продления хранения" vertex="1">
+          <mxGeometry height="40" width="280" x="880" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-48" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Подтвердить и оплатить&amp;nbsp; продление" vertex="1">
+          <mxGeometry height="32.5" width="200" x="920" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-49" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Отмена" vertex="1">
+          <mxGeometry height="20" width="55" x="987.5" y="1090" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-50" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Параметры продления&lt;div&gt;1. Текущая дата окончания&lt;/div&gt;&lt;div&gt;2. Дополнительный срок [выбор]&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="260" x="890" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-51" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Рассчитать доплату" vertex="1">
+          <mxGeometry height="20" width="130" x="900" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-52" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;POST /api/v1/bookings/{bookingId}/extend/calculate&lt;/font&gt;" vertex="1">
+          <mxGeometry height="25" width="260" x="890" y="845" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-53" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;POST /api/v1/bookings/{bookingId}/extend&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;POST /api/v1/payments&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="260" x="890" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-54" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Результат расчета&lt;div&gt;1. Новый период хранения&lt;br&gt;&lt;div&gt;2. Стоимость доплаты&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="260" x="890" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-55" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="520" width="280" x="880" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-56" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Поле поиска целевой локации" vertex="1">
+          <mxGeometry height="30" width="260" x="890" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-57" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div style=&quot;line-height: 90%;&quot;&gt;&lt;font style=&quot;font-size: 9px; line-height: 90%;&quot;&gt;GET /api/v1/bookings/{bookingId}/transfer-destinations?search=...&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 9px; line-height: 90%;&quot;&gt;GET /api/v1/bookings/{bookingId}/transfer-destinations/map-points?search=...&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="260" x="890" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-58" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Фильтры / сортировка&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="120" x="890" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-59" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Список доступных вариантов перемещения:&lt;div&gt;1. Название целевой локации&lt;/div&gt;&lt;div&gt;2. Адрес&lt;/div&gt;&lt;div&gt;3. Доступно N подходящих ячеек&lt;/div&gt;&lt;div&gt;4. От X рублей&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="260" x="890" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-60" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;GET /api/v1/bookings/{bookingId}/transfer-destinations&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="260" x="890" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-61" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Найти" vertex="1">
+          <mxGeometry height="20" width="40" x="1095" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-62" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;" value="Карта целевых локаций" vertex="1">
+          <mxGeometry height="90" width="250" x="890" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-63" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px; line-height: 90%;&quot;&gt;GET /api/v1/bookings/{bookingId}/transfer-destinations/map-points&lt;/font&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;*Интеграция с внешним картографическим сервисом*&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="250" x="890" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-64" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Нижнее меню навигации&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;1. Главная 2. Мои хранения 3. Поддержка&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="250" x="890" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-65" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Выбрать" vertex="1">
+          <mxGeometry height="20" width="55" x="1080" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-66" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;5. Экран выбора целевой локации для перемещения&lt;/font&gt;&amp;nbsp;&lt;div&gt;/bookings/{bookingId}/transfers&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="280" x="880" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-67" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Исходное хранение&lt;div&gt;1. Исходная локация&lt;/div&gt;&lt;div&gt;2. Исходная ячейка&lt;/div&gt;&lt;div&gt;3. Статус хранения&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="260" x="890" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-68" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;GET /api/v1/bookings/{bookingId}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="260" x="890" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-69" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="520" width="280" x="1280" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-70" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="6. Экран оформления перемещения&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;/bookings/{bookingId}/transfers/new?locationId={locationId}&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="280" x="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-71" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Информация о целевой локации&lt;div&gt;1. Название локации&lt;/div&gt;&lt;div&gt;2. Адрес&lt;/div&gt;&lt;div&gt;3. Режим работы&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="260" x="1290" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-72" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="GET /api/v1/locations/{locationId}" vertex="1">
+          <mxGeometry height="25" width="260" x="1290" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-75" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Результат расчета&amp;nbsp;&lt;div&gt;1. Маршрут перемещения (сводка)&lt;/div&gt;&lt;div&gt;2. Стоимость перемещения&lt;/div&gt;" vertex="1">
+          <mxGeometry height="55" width="260" x="1290" y="297.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-76" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;POST /api/v1/bookings/{bookingId}/transfers/calculate&lt;/font&gt;" vertex="1">
+          <mxGeometry height="25" width="260" x="1290" y="272.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-77" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%; font-size: 10px;&quot;&gt;GET /api/v1/bookings/{bookingId}/can-transfer&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%; font-size: 10px;&quot;&gt;POST /api/v1/locations/{locationId}/cell-availability-check&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%; font-size: 10px;&quot;&gt;POST /api/v1/bookings/{bookingId}/transfers&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%; font-size: 10px;&quot;&gt;POST /api/v1/payments&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="55" width="260" x="1290" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-78" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Подтвердить и оплатить" vertex="1">
+          <mxGeometry height="20" width="260" x="1290" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-79" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Вернуться к выбору" vertex="1">
+          <mxGeometry height="20" width="260" x="1290" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-80" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Нижнее меню навигации&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;1. Главная 2. Мои хранения 3. Поддержка&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="260" x="1290" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-81" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div style=&quot;line-height: 110%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px; line-height: 110%;&quot;&gt;1. Размер ячейки (определяется по активному хранению)&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px; line-height: 110%;&quot;&gt;2. Текущая дата окончания хранения (с&lt;/font&gt;&lt;span style=&quot;font-size: 11px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;рок хранения после перемещения не изменится)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="85" width="260" x="1290" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-82" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="GET /api/v1/bookings/{bookingId}" vertex="1">
+          <mxGeometry height="20" width="260" x="1290" y="152.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-83" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-65" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.596;entryDx=0;entryDy=0;entryPerimeter=0;" target="Tpl5S-HseXtg4csTzpkj-69" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1754" y="510" as="sourcePoint" />
+            <mxPoint x="1270" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-84" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-83" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;font-size: 10px; text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;/bookings/{bookingId}/&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 10px; text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;transfers/new?&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 10px; text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;locationId={locationId}&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.138" y="-1" as="geometry">
+            <mxPoint x="4" y="-29" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-85" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-79" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1.002;entryY=0.846;entryDx=0;entryDy=0;entryPerimeter=0;" target="Tpl5S-HseXtg4csTzpkj-55" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1574" y="550" as="sourcePoint" />
+            <mxPoint x="1624" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-86" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-85" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;/bookings/{bookingId}/&lt;/font&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;transfers&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0569" y="-1" as="geometry">
+            <mxPoint x="-9" y="-19" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-87" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="520" width="280" x="1680" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-88" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="7. Экран заказа на перемещение&lt;div&gt;/transfers/{transferId}&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="280" x="1680" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-89" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Информация о заказе&lt;div&gt;1. ID заказа&lt;/div&gt;&lt;div&gt;2. Статус заказа&lt;/div&gt;&lt;div&gt;3. Статус оплаты&lt;/div&gt;&lt;div&gt;4. Дата создания&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="85" width="260" x="1690" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-90" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="GET /api/v1/transfers/{transferId}" vertex="1">
+          <mxGeometry height="25" width="260" x="1690" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-91" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Маршрут перемещения&lt;div&gt;1. Исходная локация&lt;/div&gt;&lt;div&gt;2. Исходная ячейка&lt;/div&gt;&lt;div&gt;3. Целевая локация&lt;/div&gt;&lt;div&gt;4. Целевая ячейка&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="85" width="260" x="1690" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-92" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="GET /api/v1/transfers/{transferId}" vertex="1">
+          <mxGeometry height="25" width="260" x="1690" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-93" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="История статусов:&lt;div&gt;1. Создан&lt;/div&gt;&lt;div&gt;2. Ожидает назначения курьера&lt;/div&gt;&lt;div&gt;3. Курьер назначен&lt;/div&gt;&lt;div&gt;4. Вещь забрана&lt;/div&gt;&lt;div&gt;5. В пути...&lt;/div&gt;" vertex="1">
+          <mxGeometry height="115" width="260" x="1690" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-94" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="GET /api/v1/transfers/{transferId}/status-history" vertex="1">
+          <mxGeometry height="25" width="260" x="1690" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-95" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Отменить заказ" vertex="1">
+          <mxGeometry height="20" width="260" x="1690" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-96" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;PATCH /api/v1/transfers/{transferId}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="25" width="260" x="1690" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-97" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Поддержка" vertex="1">
+          <mxGeometry height="20" width="260" x="1690" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-98" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="/support?transferId={transferId}" vertex="1">
+          <mxGeometry height="25" width="260" x="1690" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-99" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Нижнее меню навигации&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;1. Главная 2. Мои хранения 3. Поддержка&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="260" x="1690" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-100" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-78" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.769;entryDx=0;entryDy=0;entryPerimeter=0;" target="Tpl5S-HseXtg4csTzpkj-87" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1994" y="490" as="sourcePoint" />
+            <mxPoint x="2044" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-101" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-100" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;/transfers/{transferId}&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1075" y="5" as="geometry">
+            <mxPoint x="12" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-102" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Активное перемещение &lt;font style=&quot;font-size: 10px;&quot;&gt;(если есть)&lt;/font&gt;&lt;div&gt;1. ID заказа на перемещение&lt;/div&gt;&lt;div&gt;2. Текущий статус&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="260" x="490" y="826.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-103" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;GET /api/v1/bookings/{bookingId}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="260" x="490" y="806.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-104" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Открыть&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;заказ&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="50" x="690" y="846.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-105" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-38" style="endArrow=classic;html=1;rounded=0;entryX=-0.002;entryY=0.538;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryPerimeter=0;" target="Tpl5S-HseXtg4csTzpkj-46" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="830" y="991" />
+            </Array>
+            <mxPoint x="750" y="996" as="sourcePoint" />
+            <mxPoint x="1270" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-106" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-104" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="Tpl5S-HseXtg4csTzpkj-87" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="861" />
+              <mxPoint x="840" y="640" />
+              <mxPoint x="2000" y="640" />
+              <mxPoint x="2000" y="300" />
+            </Array>
+            <mxPoint x="1220" y="520" as="sourcePoint" />
+            <mxPoint x="1980" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-107" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-106" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=0;" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;/transfers/{transferId}&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.1326" y="1" as="geometry">
+            <mxPoint x="-493" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-108" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-25" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="Tpl5S-HseXtg4csTzpkj-32" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="450" />
+              <mxPoint x="800" y="806" />
+            </Array>
+            <mxPoint x="800" y="430" as="sourcePoint" />
+            <mxPoint x="780" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-109" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-108" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=0;" value="&lt;span style=&quot;text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;/bookings/{bookingId}&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0112" y="2" as="geometry">
+            <mxPoint x="-62" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-110" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="520" width="280" x="80" y="676.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-111" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="3. Экран &quot;Мои хранения&quot;&lt;div&gt;/bookings&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="280" x="80" y="636.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-112" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Список хранений&lt;div&gt;1. ID бронирования&lt;/div&gt;&lt;div&gt;2. Статус&amp;nbsp;&lt;/div&gt;&lt;div&gt;3. Локация&lt;/div&gt;&lt;div&gt;4. Ячейка&lt;/div&gt;&lt;div&gt;4. Дата начала&lt;br&gt;&lt;/div&gt;&lt;div&gt;6. Текущая дата окончания&lt;/div&gt;&lt;div&gt;7. Активное заказ на перемещение&amp;nbsp;&lt;span style=&quot;font-size: 10px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(если есть)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="285" width="260" x="90" y="746.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-113" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="GET /api/v1/bookings" vertex="1">
+          <mxGeometry height="25" width="260" x="90" y="721.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-114" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Открыть" vertex="1">
+          <mxGeometry height="30" width="60" x="270" y="986.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-115" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Нижнее меню навигации&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;1. Главная 2. Мои хранения 3. Поддержка&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="260" x="90" y="1136.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-116" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="520" width="280" x="1280" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-117" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="8. Экран поддержки&lt;div&gt;/support&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="280" x="1280" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-118" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Связанный объект &lt;font style=&quot;font-size: 10px;&quot;&gt;(если есть)&lt;/font&gt;&lt;div&gt;1. Тип объекта&lt;/div&gt;&lt;div&gt;2. ID объекта&lt;/div&gt;" vertex="1">
+          <mxGeometry height="65" width="260" x="1290" y="721.02" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-119" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="GET /api/v1/bookings/{bookingId} /&lt;div&gt;GET /api/v1/transfers/{transferId}&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="260" x="1290" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-120" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Форма создания обращения&lt;div&gt;1. Тема сообщения [ввод]&lt;/div&gt;&lt;div&gt;2. Текст обращения [ввод]&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="260" x="1290" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-121" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Отправить обращение" vertex="1">
+          <mxGeometry height="20" width="260" x="1290" y="915" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-122" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;POST /api/v1/support-requests&lt;/font&gt;" vertex="1">
+          <mxGeometry height="25" width="260" x="1290" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-123" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="Список обращений&lt;br&gt;&lt;div&gt;1. ID обращения&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;2. Тема&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;3. Статус&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;4. Дата создания&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="115" width="260" x="1290" y="995" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-124" parent="Tpl5S-HseXtg4csTzpkj-1" style="text;whiteSpace=wrap;html=1;align=center;" value="GET /api/v1/support-requests" vertex="1">
+          <mxGeometry height="25" width="260" x="1290" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-125" parent="Tpl5S-HseXtg4csTzpkj-1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Нижнее меню навигации&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;1. Главная 2. Мои хранения 3. Поддержка&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="260" x="1290" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-126" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-49" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1.002;entryY=0.815;entryDx=0;entryDy=0;entryPerimeter=0;" target="Tpl5S-HseXtg4csTzpkj-32" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="1100" />
+            </Array>
+            <mxPoint x="830" y="1120" as="sourcePoint" />
+            <mxPoint x="800" y="1080" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-127" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-39" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Tpl5S-HseXtg4csTzpkj-55" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="1036" />
+              <mxPoint x="820" y="300" />
+            </Array>
+            <mxPoint x="880" y="960" as="sourcePoint" />
+            <mxPoint x="900" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-128" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-127" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;/bookings/{bookingId}/transfers&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.1826" y="2" as="geometry">
+            <mxPoint x="92" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-129" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-48" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" target="Tpl5S-HseXtg4csTzpkj-32" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="920" y="1010" as="sourcePoint" />
+            <mxPoint x="970" y="960" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-130" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-43" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.001;entryY=0.922;entryDx=0;entryDy=0;entryPerimeter=0;" target="Tpl5S-HseXtg4csTzpkj-116" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="1116" />
+              <mxPoint x="800" y="1160" />
+            </Array>
+            <mxPoint x="1000" y="1080" as="sourcePoint" />
+            <mxPoint x="1240" y="1170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-131" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-130" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;background-color: rgb(236, 236, 236);&quot;&gt;/support?bookingId={bookingId}&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.029" y="3" as="geometry">
+            <mxPoint y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-132" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-97" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" target="Tpl5S-HseXtg4csTzpkj-116" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="2040" y="480" />
+              <mxPoint x="2040" y="1070" />
+            </Array>
+            <mxPoint x="1860" y="590" as="sourcePoint" />
+            <mxPoint x="1620" y="980" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-133" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-132" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;background-color: rgb(236, 236, 236);&quot;&gt;/support?transferId={transferId}&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.5991" y="-1" as="geometry">
+            <mxPoint y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-134" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-45" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="Tpl5S-HseXtg4csTzpkj-110" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="620" y="1240" />
+              <mxPoint x="220" y="1240" />
+            </Array>
+            <mxPoint x="620" y="1240" as="sourcePoint" />
+            <mxPoint x="430" y="1130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-135" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-134" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;/bookings&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0308" y="3" as="geometry">
+            <mxPoint y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-136" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-45" style="endArrow=classic;html=1;rounded=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="Tpl5S-HseXtg4csTzpkj-116" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="685" y="1240" />
+              <mxPoint x="1420" y="1240" />
+            </Array>
+            <mxPoint x="700" y="1230" as="sourcePoint" />
+            <mxPoint x="1400" y="1240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-137" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-136" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;/support&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0163" y="-3" as="geometry">
+            <mxPoint x="3" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-138" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-45" style="endArrow=classic;html=1;rounded=0;exitX=0.182;exitY=0.99;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="Tpl5S-HseXtg4csTzpkj-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="537" y="1220" />
+              <mxPoint x="420" y="1220" />
+              <mxPoint x="420" y="600" />
+              <mxPoint x="290" y="600" />
+            </Array>
+            <mxPoint x="520" y="1240" as="sourcePoint" />
+            <mxPoint x="290" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-139" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-138" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;/locations&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.76" y="1" as="geometry">
+            <mxPoint x="-3" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-140" edge="1" parent="Tpl5S-HseXtg4csTzpkj-1" source="Tpl5S-HseXtg4csTzpkj-114" style="endArrow=classic;html=1;rounded=0;entryX=0.002;entryY=0.623;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.995;exitY=0.449;exitDx=0;exitDy=0;exitPerimeter=0;" target="Tpl5S-HseXtg4csTzpkj-32" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="1000" />
+            </Array>
+            <mxPoint x="330" y="1001" as="sourcePoint" />
+            <mxPoint x="540" y="970" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tpl5S-HseXtg4csTzpkj-141" connectable="0" parent="Tpl5S-HseXtg4csTzpkj-140" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;text-wrap-mode: wrap; background-color: rgb(236, 236, 236);&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;/bookings/{bookingId}&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.4953" as="geometry">
+            <mxPoint x="-28" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
