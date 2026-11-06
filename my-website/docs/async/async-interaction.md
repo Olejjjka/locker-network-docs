@@ -218,3 +218,8 @@ Frontend --> User: Обновление статуса на экране
 | Команда клиента | `SubscribeTransferUpdates` |
 | Событие backend | `TransferStatusChanged` |
 | Основной идентификатор подписки | `transferId` |
+
+## Связанные материалы
+
+- [Экраны и REST API](../api/api-by-wireframes.md).
+- [Модели данных](../data-model/erd.md).

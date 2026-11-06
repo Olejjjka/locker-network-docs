@@ -6,6 +6,7 @@ description: Проектирование REST API пользовательск�
 
 import Drawio from '@theme/Drawio'
 import apiWireframes from '!!raw-loader!./api-wireframes.drawio';
+import apiWireframesSource from '!!file-loader!./api-wireframes.drawio';
 
 # Проектирование API по макетам
 
@@ -22,6 +23,8 @@ import apiWireframes from '!!raw-loader!./api-wireframes.drawio';
 Ниже приведена общая схема экранов пользовательской части системы с привязкой экранов к маршрутам и API-endpoints.
 
 <Drawio content={apiWireframes} editable={false} />
+
+[Открыть изображение схемы](/img/api/api-wireframes.png) · <a href={apiWireframesSource} download>Скачать исходник draw.io</a>
 
 :::note
 Повторение одного и того же запроса в пределах одного экрана используется только для наглядной привязки источников данных к соответствующим блокам интерфейса. Фактически один ответ API может использоваться сразу в нескольких элементах экрана.
@@ -316,6 +319,8 @@ import apiWireframes from '!!raw-loader!./api-wireframes.drawio';
 
 ## Спецификация OpenAPI
 
+[Скачать OpenAPI YAML](/openapi/openapi.yaml). Адрес сервера в спецификации является примером.
+
 В рамках задания была разработана спецификация OpenAPI для пользовательской части платформы городской сети камер хранения.
 
 Спецификация построена на основе макетов экранов и описывает источники данных, необходимые frontend-части для реализации пользовательских сценариев. В спецификации определены основные endpoints, параметры запросов, модели запросов и ответов.
@@ -331,3 +336,9 @@ import apiWireframes from '!!raw-loader!./api-wireframes.drawio';
 | `Transfers` | Оформление и сопровождение перемещений |
 | `Payments` | Инициация и сопровождение оплаты |
 | `Support` | Создание и просмотр обращений в поддержку |
+
+## Связанные материалы
+
+- [Требования](../requirements/requirements.md).
+- [Модели данных](../data-model/erd.md).
+- [WebSocket](../async/async-interaction.md).

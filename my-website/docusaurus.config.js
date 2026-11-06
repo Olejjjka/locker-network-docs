@@ -7,7 +7,7 @@ const simplePlantUML = require('@akebifiky/remark-simple-plantuml');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Платформа городской сети камер хранения с возможностью доставки вещей между локациями',
-  tagline: 'Техническая документация ',
+  tagline: 'От бизнес-контекста к требованиям, данным и интеграциям',
   favicon: 'img/favicon.ico',
 
   url: 'https://olejjjka.github.io',
@@ -17,8 +17,9 @@ const config = {
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenAnchors: 'throw',
+  markdown: {hooks: {onBrokenMarkdownLinks: 'throw'}},
 
   i18n: {
     defaultLocale: 'ru',
@@ -35,6 +36,7 @@ const config = {
       {
         docs: {
           sidebarPath: './sidebars.js',
+          exclude: ['**/tutorial-basics/**', '**/tutorial-extras/**'],
           routeBasePath: 'docs',
           editUrl: 'https://github.com/Olejjjka/locker-network-docs/edit/main/my-website/',
           remarkPlugins: [simplePlantUML],
@@ -63,7 +65,7 @@ const config = {
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/requirements/event-storming.png',
     colorMode: {
       respectPrefersColorScheme: true,
     },
